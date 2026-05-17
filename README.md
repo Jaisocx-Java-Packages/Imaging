@@ -32,7 +32,9 @@
 ### Cropper
 
   ```java
+
     // ./src/main/java/com/jaisocx/app/CropperOne.java
+    
     package com.jaisocx.app;
 
     import ...
@@ -66,7 +68,7 @@
       }
     
     }
-```
+  ```
 
 
 
@@ -77,7 +79,9 @@
   **Facade for the Imaging Java package**
 
   ```java
+
     // ./src/main/java/com/jaisocx/imaging/Imaging.java
+    
     package com.jaisocx.imaging;
     
     import ...
