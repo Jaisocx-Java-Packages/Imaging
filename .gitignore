@@ -1,4 +1,25 @@
 
-/produced/
+/.vscode
+/.idea
+
+/produced
+/src/main/resources
+
+/*.jar
+/**/*.jar
+
+/.env
+/.env*
+/**/.env
+/**/.env*
+
+/*.log
+/**/*.log
+
+/log
+/logs
+/**/log
+/**/logs
+
 
 
