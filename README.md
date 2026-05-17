@@ -13,8 +13,6 @@
 
 | 📐 **Size**     | 🗂 Folder: 200 KB | 📦 .jar: 155 KB | 📋 .java: 66 KB | 
 
-| ⚡ **JS Engine** | 🌐 Browser: ❌ no | 🧭 Express: ❌ no | 🖥️ Console: ✅ yes |
-
 ---
 
 
