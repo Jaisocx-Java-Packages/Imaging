@@ -19,10 +19,18 @@
 
 
 
+![./readme/images/spread_shutterstock_464833178_550.jpg](./readme/images/spread_shutterstock_464833178_550.jpg)
+
+![./readme/images/shutterstock_464833178_cropped_3_4.png](./readme/images/shutterstock_464833178_cropped_3_4.png)
+
+![./readme/images/shutterstock_464833178_small_crop_3_4.png](./readme/images/shutterstock_464833178_small_crop_3_4.png)
+
+
+
 ## Console
 
   ```bash
-    ./command/cropper_batch.sh
+    ./command/cropper_one.sh
   ```
 
 
