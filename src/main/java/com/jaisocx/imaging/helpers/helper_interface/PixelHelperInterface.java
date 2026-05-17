@@ -1,10 +1,13 @@
 package com.jaisocx.imaging.helpers.helper_interface;
 
+import com.jaisocx.imaging.helpers.ColorBase;
+
 import java.awt.image.BufferedImage;
 
+import com.jaisocx.imaging.helpers.helper_interface.ColorBaseInterface;
 
 
-public interface PixelHelperInterface {
+public interface PixelHelperInterface extends ColorBaseInterface {
 
     // The Fastest
     public PixelHelperInterface setRgba (

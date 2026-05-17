@@ -6,10 +6,11 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 
 import com.jaisocx.imaging.types.Rect;
+import com.jaisocx.imaging.helpers.helper_interface.ColorBaseInterface;
 
 
 
-public interface TextHelperInterface {
+public interface TextHelperInterface extends ColorBaseInterface {
 
     public TextHelperInterface setText (
       int Alpha,

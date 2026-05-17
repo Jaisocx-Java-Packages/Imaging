@@ -30,38 +30,6 @@ public class BaseImaging implements BaseImagingInterface {
 
 
 
-    public BufferedImage readImageFile ( String path ) {
-
-      File imageFile = new File( path );
-      BufferedImage readBufferedImage = null;
-
-      try {
-        readBufferedImage = ImageIO.read ( imageFile );
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-
-      imageFile = null;
-
-      
-
-      BufferedImage convertedBufferedImage = new BufferedImage (
-          readBufferedImage.getWidth(),
-          readBufferedImage.getHeight(),
-          BufferedImage.TYPE_INT_ARGB
-      );
-
-      Graphics2D g = convertedBufferedImage.createGraphics();
-      g.drawImage ( readBufferedImage, 0, 0, null );
-      g.dispose();
-      g = null;
-
-
-      return convertedBufferedImage;
-    }
-
-
-
     public BaseImagingInterface copyArea_FromImageToAnother ( 
       BufferedImage src_Img, 
       Rect src_Rect, 
@@ -230,38 +198,6 @@ public class BaseImaging implements BaseImagingInterface {
         destImagePixels[ destImagePixelIx ] = overlayImage_PixelRgba;
 
       }
-
-
-      return this;
-    }
-
-
-
-    // Save 
-    public BaseImagingInterface writeImageToFile ( 
-      BufferedImage bufferedImageToWrite, 
-      ImageFormatEnum format, 
-      String path
-    ) {
-
-      bufferedImageToWrite.flush();
-
-
-
-      File savedFile = new File( path );
-
-      try {
-        ImageIO.write ( 
-          bufferedImageToWrite, 
-          format.getFilenameExtension(), 
-          savedFile 
-        );
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-
-      savedFile = null;
-
 
 
       return this;

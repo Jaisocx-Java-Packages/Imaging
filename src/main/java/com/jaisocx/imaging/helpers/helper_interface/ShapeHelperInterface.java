@@ -4,8 +4,10 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import com.jaisocx.imaging.types.Rect;
+import com.jaisocx.imaging.helpers.helper_interface.ColorBaseInterface;
 
-public interface ShapeHelperInterface {
+
+public interface ShapeHelperInterface extends ColorBaseInterface {
 
 
   public void drawShadowRect (

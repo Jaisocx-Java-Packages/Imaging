@@ -11,7 +11,8 @@ import java.nio.file.Path;
 
 import javax.imageio.ImageIO;
 
-import com.jaisocx.imaging.BaseImaging;
+import com.jaisocx.imaging.types.Rect;
+
 import com.jaisocx.imaging.Constants.ImageFormatEnum;
 import com.jaisocx.imaging.Constants.ImagingConstants;
 import com.jaisocx.imaging.helpers.ColorBase;
@@ -19,7 +20,20 @@ import com.jaisocx.imaging.helpers.ColorHelper;
 import com.jaisocx.imaging.helpers.PixelHelper;
 import com.jaisocx.imaging.helpers.ShapeHelper;
 import com.jaisocx.imaging.helpers.TextHelper;
-import com.jaisocx.imaging.types.Rect;
+import com.jaisocx.imaging.helpers.helper_interface.ImagingFilesystemHelperInterface;
+import com.jaisocx.imaging.helpers.ImagingFilesystemHelper;
+
+import com.jaisocx.imaging.BaseImagingInterface;
+import com.jaisocx.imaging.BaseImaging;
+
+import com.jaisocx.imaging.ImageConverterInterface;
+import com.jaisocx.imaging.ImageConverter;
+
+import com.jaisocx.imaging.ImageCropperInterface;
+import com.jaisocx.imaging.ImageCropper;
+
+import com.jaisocx.imaging.ImagingInterface;
+import com.jaisocx.imaging.Imaging;
 
 
 
@@ -166,7 +180,7 @@ public class MiniImageProducer {
 
 
 
-      Graphics2D graphics2D = bufferedImage_toWrite.createGraphics();
+      Graphics2D graphics2D = (Graphics2D)bufferedImage_toWrite.createGraphics();
       ColorBase colorBase = new ColorBase();
       ColorHelper colorHelper = new ColorHelper();
       ShapeHelper shapeHelper = new ShapeHelper();
@@ -230,15 +244,14 @@ public class MiniImageProducer {
 
       baseImaging.cleanup( graphics2D );
 
-      baseImaging.writeImageToFile ( 
+      ImagingFilesystemHelper imagingFilesystemHelper = new ImagingFilesystemHelper();
+      long written = imagingFilesystemHelper.write (
         bufferedImage_toWrite,
         imageFormat,
         locPathToSave
       );
 
-
-
-      return 3L;
+      return 2L;
     }
 
 
@@ -282,11 +295,12 @@ public class MiniImageProducer {
       BufferedImage readDest_bufferedImage = null;
 
       BaseImaging baseImaging = new BaseImaging();
+      ImagingFilesystemHelper imagingFilesystemHelper = new ImagingFilesystemHelper();
 
 
 
-      readSrc_bufferedImage = baseImaging.readImageFile( src_ImagePath );
-      readDest_bufferedImage = baseImaging.readImageFile( dest_ImagePath );
+      readSrc_bufferedImage  = imagingFilesystemHelper.read( src_ImagePath );
+      readDest_bufferedImage = imagingFilesystemHelper.read( dest_ImagePath );
 
       imgRect.width  = readDest_bufferedImage.getWidth();
       imgRect.height = readDest_bufferedImage.getHeight();
@@ -392,15 +406,14 @@ public class MiniImageProducer {
 
       baseImaging.cleanup( graphics2D );
 
-      baseImaging.writeImageToFile ( 
-        bufferedImage_toWrite,
-        inProducedImageFormat,
-        locPathToSave
+      long written = imagingFilesystemHelper.write (
+          bufferedImage_toWrite,
+          inProducedImageFormat,
+          locPathToSave
       );
 
 
-
-      return 5L;
+      return 3L;
 
     }
 
@@ -492,13 +505,12 @@ public class MiniImageProducer {
 
       baseImaging.cleanup ( graphics2D );
 
-      baseImaging.writeImageToFile ( 
+      ImagingFilesystemHelper imagingFilesystemHelper = new ImagingFilesystemHelper();
+      long written = imagingFilesystemHelper.write (
         bufferedImage,
         inImageFormat,
         locPathToSave
       );
-
-
 
       return 4L;
     }
@@ -662,7 +674,8 @@ public class MiniImageProducer {
 
 
 
-      baseImaging.writeImageToFile ( 
+      ImagingFilesystemHelper imagingFilesystemHelper = new ImagingFilesystemHelper();
+      long written = imagingFilesystemHelper.write (
         bufferedImage,
         inImageFormat,
         locPathToSave

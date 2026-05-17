@@ -1,0 +1,15 @@
+#!/bin/bash
+
+produced_image_ver="a16mai26_0_1_txt_v1"
+produced_image_mimetype="png"
+
+top=134
+height=448
+left=510
+width=413
+
+cropped_image_path="./src/main/resources/spreads/shutterstock_2632283417/spread_2632283417_shutterstock.jpg"
+
+pathof_java_class_invoke="./src/main/java/com/jaisocx/app/CropperOne.java"
+
+

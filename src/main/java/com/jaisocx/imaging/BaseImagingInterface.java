@@ -15,8 +15,6 @@ public interface BaseImagingInterface {
     // BufferedImage.TYPE_INT_ARGB
     public BufferedImage createImage ( int width, int height, int imageType );
 
-    public BufferedImage readImageFile ( String path );
-
     public BaseImagingInterface copyArea_FromImageToAnother ( 
       BufferedImage src_Img, 
       Rect src_Rect, 
@@ -36,13 +34,6 @@ public interface BaseImagingInterface {
       int rgbaFilterBitsOffset,
       int rgbaFilterValue,
       boolean toMatchFilter
-    );
-
-    // Save 
-    public BaseImagingInterface writeImageToFile ( 
-      BufferedImage bufferedImageToWrite, 
-      ImageFormatEnum format, 
-      String path
     );
 
     public BaseImagingInterface cleanup( Graphics2D g );
