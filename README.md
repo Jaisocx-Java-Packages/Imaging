@@ -1,4 +1,4 @@
-`Jaisocx Java Tools`
+`Jaisocx Java Packages`
 
 # Imaging
   > 💡 Simple methods: copy, copy overlay, crop, convert.
