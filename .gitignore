@@ -8,6 +8,8 @@
 /*.jar
 /**/*.jar
 
+/target/classes
+
 /.env
 /.env*
 /**/.env
