@@ -1,11 +1,11 @@
 #!/bin/bash
 
-produced_image_ver="o_16mai2026"
+produced_image_ver="o_30mai2026_v2"
 produced_image_mimetype="png"
 
 top=0
-height=585
 left=0
+height=585
 width=470
 
 offset_y=175
@@ -15,16 +15,20 @@ offset_x=194
 offset_next_y=176
 offset_next_x=318
 
-ci_first_item=0
-ci_first_line=3
+ci_first_item=2
+ci_first_line=2
 
-ci_items_number=5
+ci_items_number=1
 ci_lines_number=1
 
 
 
-cropped_image_path="./src/main/resources/spreads/shutterstock_232991971/spread_shutterstock_232991971.jpg"
+original_image_path="./src/main/resources/spreads/shutterstock_232991971/spread_shutterstock_232991971.jpg"
+produced_image_parent="./produced/shutterstock_232991971"
+produced_image_name="shutterstock_232991971_"
 
-pathof_java_class_invoke="./src/main/java/com/jaisocx/app/CropperBatch.java"
+pathof_java_class="./src/main/java/com/jaisocx/app/CropperBatch.java"
+pathof_jar="./build/jaisocx_imaging.jar"
+java_class="com.jaisocx.app.CropperBatch"
 
 

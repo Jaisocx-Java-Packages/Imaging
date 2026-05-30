@@ -1,6 +1,7 @@
 package com.jaisocx.app;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
 
 import com.jaisocx.imaging.Constants.ImageFormatEnum;
 import com.jaisocx.imaging.Imaging;
@@ -39,9 +40,18 @@ public class CropperBatch {
     long ci_lines_number = Long.valueOf( args[11] );
     long ci_items_number = Long.valueOf( args[12] );
 
-    ImageFormatEnum imageFormatTo = ImageFormatEnum.fromString( args[13] );
+    String pathOf_ProducedImageParent_to = args[13];
+    String nameOf_ProducedImage_to = args[14];
+    String pathOf_srcImage_from = args[15];
 
-    String pathOf_srcImage_from = args[14];
+    ImageFormatEnum imageFormatTo = ImageFormatEnum.fromString( args[16] );
+
+    File f_ProducedImageParent_to = new File( pathOf_ProducedImageParent_to );
+    if ( f_ProducedImageParent_to.exists() == false ) {
+      f_ProducedImageParent_to.mkdir();
+    }
+
+
     String pathOf_producedImage_to = "";
     String filenameExtensionOf_producedImage_to = imageFormatTo.getFilenameExtension();
     long written = 1L;

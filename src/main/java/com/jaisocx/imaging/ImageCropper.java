@@ -3,6 +3,7 @@ package com.jaisocx.imaging;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 
 import com.jaisocx.imaging.Constants.ImageFormatEnum;
 import com.jaisocx.imaging.types.Rect;
@@ -32,9 +33,12 @@ public class ImageCropper extends BaseImaging implements ImageCropperInterface {
 
   public ImageCropperInterface crop (
       String pathOf_srcImage_from,
+      String pathOf_ProducedImageParent_to,
+      String nameOf_ProducedImage_to,
       Rect srcImage_Rect,
       ImageFormatEnum imageFormatTo,
-      String versionCounter
+      String versionCounter,
+      boolean printsToConsole
   ) {
 
     if ( this.imagingFilesystemHelper == null ) {
@@ -61,13 +65,23 @@ public class ImageCropper extends BaseImaging implements ImageCropperInterface {
       ImageFormatEnum imageFormatFrom = ImageFormatEnum.fromString( filenameExtensionOf_srcImage );
       imageFormatTo = imageFormatFrom;
     }
-    pathOf_producedImage_to = ( pathOf_srcImage_from + "_" + versionCounter + "." + imageFormatTo.getFilenameExtension() );
+
+    File f_ProducedImageParent_to = new File( pathOf_ProducedImageParent_to );
+    if ( f_ProducedImageParent_to.exists() == false ) {
+      f_ProducedImageParent_to.mkdir();
+    }
+
+    pathOf_producedImage_to = ( pathOf_ProducedImageParent_to + "/" + nameOf_ProducedImage_to + versionCounter + "." + imageFormatTo.getFilenameExtension() );
 
     this.imagingFilesystemHelper.write (
         producedImage,
         imageFormatTo,
         pathOf_producedImage_to
     );
+
+    if ( printsToConsole == true) {
+      System.out.println( pathOf_producedImage_to );
+    }
 
     return this;
   }

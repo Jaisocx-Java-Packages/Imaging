@@ -43,9 +43,12 @@ public interface ImagingInterface {
 
   public ImagingInterface crop (
       String pathOf_srcImage_from,
+      String pathOf_ProducedImageParent_to,
+      String nameOf_ProducedImage_to,
       Rect srcImage_Rect,
       ImageFormatEnum imageFormatTo,
-      String versionCounter
+      String versionCounter,
+      boolean printsToConsole
   );
 
   public BufferedImage cropBufferedImage (

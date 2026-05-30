@@ -6,7 +6,7 @@
 
     <groupId>jaisocx</groupId>
     <artifactId>jaisocx_imaging</artifactId>
-    <version>1.4</version>
+    <version>2.1</version>
     <packaging>jar</packaging>
 
 
@@ -40,7 +40,7 @@
                                 <manifest>
                                     <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                     <addClasspath>true</addClasspath>
-                                    <mainClass>com.jaisocx.application.MiniImageProducer</mainClass>
+                                    <mainClass>com.jaisocx.app.MiniImageProducer</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>

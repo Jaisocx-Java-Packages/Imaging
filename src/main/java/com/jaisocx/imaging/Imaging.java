@@ -122,18 +122,24 @@ public class Imaging implements ImagingInterface {
 
   public ImagingInterface crop (
       String pathOf_srcImage_from,
+      String pathOf_ProducedImageParent_to,
+      String nameOf_ProducedImage_to,
       Rect srcImage_Rect,
       ImageFormatEnum imageFormatTo,
-      String versionCounter
+      String versionCounter,
+      boolean printsToConsole
   ) {
 
     ImageCropper localImageCropper = (ImageCropper)this.getImageCropper();
 
     localImageCropper.crop (
         pathOf_srcImage_from,
+        pathOf_ProducedImageParent_to,
+        nameOf_ProducedImage_to,
         srcImage_Rect,
         imageFormatTo,
-        versionCounter
+        versionCounter,
+        printsToConsole
     );
 
     return this;
