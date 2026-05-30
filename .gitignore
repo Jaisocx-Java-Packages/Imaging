@@ -8,7 +8,7 @@
 /*.jar
 /**/*.jar
 
-/target/classes
+/target
 
 /.counter
 
