@@ -10,6 +10,8 @@
 
 /target/classes
 
+/.counter
+
 /.env
 /.env*
 /**/.env
