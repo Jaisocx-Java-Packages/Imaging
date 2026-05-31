@@ -23,7 +23,11 @@ java -cp "${pathof_jar}" \
   "${original_image_path}" \
   "${produced_image_mimetype}" \
 
+backup_envs="./command/envs_${produced_image_ver}"
+if [ ! -e "${backup_envs}" ]; then
+  mkdir -p "${backup_envs}"
+fi
 
-cp -a "./command/.env_cropper_batch" "./command/envs_cropper_batch_shutterstock_2632283417/.env_cropper_batch_${produced_image_ver}"
+cp -a "./command/.env_cropper_batch" "${backup_envs}/.env_cropper_batch_${produced_image_ver}"
 
 

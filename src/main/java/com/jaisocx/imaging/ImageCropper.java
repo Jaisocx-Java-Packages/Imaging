@@ -70,6 +70,7 @@ public class ImageCropper extends BaseImaging implements ImageCropperInterface {
     if ( f_ProducedImageParent_to.exists() == false ) {
       f_ProducedImageParent_to.mkdir();
     }
+    f_ProducedImageParent_to = null;
 
     pathOf_producedImage_to = ( pathOf_ProducedImageParent_to + "/" + nameOf_ProducedImage_to + versionCounter + "." + imageFormatTo.getFilenameExtension() );
 

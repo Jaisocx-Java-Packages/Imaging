@@ -35,12 +35,17 @@
     .jsx {
       --jsx--css-clean-start-2--rem: 16px;
 
+      --jsx--css-clean-start-2--site--min-width: 93%;
+      --jsx--css-clean-start-2--site--width: 93%;
+
+      --jsx--css-clean-start-2--site--background: white;
+
       --jsx--css-clean-start-2--h1--font-size: 1.05rem;
       --jsx--css-clean-start-2--h1--margin: 1rem 0;
 
       --jaisocx-ts-pack-label--font-size: 0.79rem;
 
-      --image-size: 4rem;
+      --image-size: 5rem;
     }
 
     html.jsx label {
@@ -51,13 +56,13 @@
 
       font-size: var(--jaisocx-ts-pack-label--font-size);
       line-height: var(--jaisocx-ts-pack-label--font-size);
-      letter-spacing: 0.04rem;
+      letter-spacing: 0.05rem;
 
       padding: 0.14rem 0.6rem 0.14rem 0.6rem;
     }
 
     html.jsx produced_images.images.big {
-      --image-size: 6rem;
+      --image-size: 20rem;
     }
 
     html.jsx produced_images.images.little {
@@ -75,6 +80,8 @@
 
       font-size: 0;
       line-height: 0;
+
+      background: white;
     }
 
     html.jsx produced_images.images item_image {
@@ -84,7 +91,8 @@
       height: var(--image-size);
       width: var(--image-size);
 
-      border: 1px solid #efe;
+      border: 1px solid navy;
+      background: white;
 
       overflow: hidden hidden;
 
@@ -102,7 +110,7 @@
       max-width: 100%;
       width: auto;
 
-      border: 1px solid lime;
+      border: 1px dashed black;
 
       overflow: hidden hidden;
     }
@@ -120,7 +128,7 @@
 
 
 
-  <produced_images class="images big">
+  <produced_images class="images little">
 
     <item_image>
       <img
@@ -202,6 +210,62 @@
     <item_image>
       <img
           src="produced/preview/image_12.png"
+          onerror="javascript: ( () => { this.style.display = 'none'; this.onerror = null; } )();"
+      />
+    </item_image>
+
+    <item_image>
+      <img
+          src="produced/preview/image_13.png"
+          onerror="javascript: ( () => { this.style.display = 'none'; this.onerror = null; } )();"
+      />
+    </item_image>
+
+    <item_image>
+      <img
+          src="produced/preview/image_14.png"
+          onerror="javascript: ( () => { this.style.display = 'none'; this.onerror = null; } )();"
+      />
+    </item_image>
+
+    <item_image>
+      <img
+          src="produced/preview/image_15.png"
+          onerror="javascript: ( () => { this.style.display = 'none'; this.onerror = null; } )();"
+      />
+    </item_image>
+
+    <item_image>
+      <img
+          src="produced/preview/image_16.png"
+          onerror="javascript: ( () => { this.style.display = 'none'; this.onerror = null; } )();"
+      />
+    </item_image>
+
+    <item_image>
+      <img
+          src="produced/preview/image_17.png"
+          onerror="javascript: ( () => { this.style.display = 'none'; this.onerror = null; } )();"
+      />
+    </item_image>
+
+    <item_image>
+      <img
+          src="produced/preview/image_18.png"
+          onerror="javascript: ( () => { this.style.display = 'none'; this.onerror = null; } )();"
+      />
+    </item_image>
+
+    <item_image>
+      <img
+          src="produced/preview/image_19.png"
+          onerror="javascript: ( () => { this.style.display = 'none'; this.onerror = null; } )();"
+      />
+    </item_image>
+
+    <item_image>
+      <img
+          src="produced/preview/image_20.png"
           onerror="javascript: ( () => { this.style.display = 'none'; this.onerror = null; } )();"
       />
     </item_image>

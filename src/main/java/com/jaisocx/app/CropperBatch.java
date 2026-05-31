@@ -14,7 +14,7 @@ public class CropperBatch {
 
   public static void main (String[] args) {
 
-    String versionCounter = args[0];
+    String imageVer = args[0];
     String versionBatchCounter = "_${lineKey}_${itemKey}_";
 
     Rect srcImage_Rect = new Rect();
@@ -46,10 +46,18 @@ public class CropperBatch {
 
     ImageFormatEnum imageFormatTo = ImageFormatEnum.fromString( args[16] );
 
-    File f_ProducedImageParent_to = new File( pathOf_ProducedImageParent_to );
+    File f_ProducedImageParent_to = new File( ( pathOf_ProducedImageParent_to + imageVer ));
     if ( f_ProducedImageParent_to.exists() == false ) {
       f_ProducedImageParent_to.mkdir();
     }
+    f_ProducedImageParent_to = null;
+
+    File f_ProducedPreview_to = new File( "./produced/preview" );
+    if ( f_ProducedPreview_to.exists() == false ) {
+      f_ProducedPreview_to.mkdir();
+    }
+    f_ProducedPreview_to = null;
+
 
 
     String pathOf_producedImage_to = "";
@@ -132,19 +140,44 @@ public class CropperBatch {
         itemKey = ( counterItem - 2 );
         ci_Image_Rect.x = (int)( offsetX + srcImage_Rect.x + ( ( offsetNextX + srcImage_Rect.x + srcImage_Rect.width )  * itemKey ) );
         versionBatchCounter = ( lineKey + "_" + itemKey );
-        pathOf_producedImage_to = (
+
+        /* pathOf_producedImage_to = (
             pathOf_folder_srcImage_from
                 + "/" + "produced_batch"
-                + "_" + versionCounter
+                + "_" + imageVer
                 + "/" + filenameBaseOf_srcImage_from
-                + "_" + versionCounter + "_"
+                + "_" + imageVer + "_"
                 + versionBatchCounter
                 + "." + filenameExtensionOf_producedImage_to
+        ); */
+
+
+        pathOf_producedImage_to = (
+            ( pathOf_ProducedImageParent_to + imageVer )
+                + "/" + (
+                    nameOf_ProducedImage_to
+                    + imageVer
+                    + "_" + versionBatchCounter
+                    + "." + filenameExtensionOf_producedImage_to
+                  )
         );
 
         producedBufImage = imaging.cropBufferedImage (
             bImg,
             ci_Image_Rect
+        );
+
+        written = fsHelper.write (
+            producedBufImage,
+            imageFormatTo,
+            pathOf_producedImage_to
+        );
+
+        pathOf_producedImage_to = (
+            "./produced/preview"
+            + "/" + "image_"
+            + "_" + versionBatchCounter
+            + "." + filenameExtensionOf_producedImage_to
         );
 
         written = fsHelper.write (

@@ -32,7 +32,12 @@ counter_n="$(expr "${counter_t}" + 1)"
 
 
 # .env of the image cropping settings saved
-cp -a "./command/.env_cropper_one" "./command/envs_cropper_one_shutterstock_2632283417/.env_cropper_one_${produced_image_ver}"
+backup_envs="./command/envs_${produced_image_ver}"
+if [ ! -e "${backup_envs}" ]; then
+  mkdir -p "${backup_envs}"
+fi
+
+cp -a "./command/.env_cropper_one" "${backup_envs}/.env_cropper_one_${produced_image_ver}"
 
 cp -a "${produced_image_parent}/${produced_image_name}${produced_image_ver}.${produced_image_mimetype}"   "./produced/preview/${produced_image_preview_name}${counter_n}.${produced_image_mimetype}"
 echo -e "${counter_n}" > "${counter_path}"
