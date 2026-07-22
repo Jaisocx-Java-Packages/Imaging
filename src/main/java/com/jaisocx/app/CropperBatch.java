@@ -1,11 +1,16 @@
 package com.jaisocx.app;
 
+
+import com.jaisocx.imaging.Constants.ImageFormatEnum;
+
+import com.jaisocx.imaging.helpers.helper_interface.ImagingFilesystemHelperInterface;
+import com.jaisocx.imaging.helpers.ImagingFilesystemHelper;
+
+import com.jaisocx.imaging.Imaging;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import com.jaisocx.imaging.Constants.ImageFormatEnum;
-import com.jaisocx.imaging.Imaging;
-import com.jaisocx.imaging.helpers.helper_interface.ImagingFilesystemHelperInterface;
 import com.jaisocx.imaging.types.Rect;
 
 
@@ -89,7 +94,7 @@ public class CropperBatch {
 
 
     Imaging imaging = new Imaging();
-    ImagingFilesystemHelperInterface fsHelper = imaging.getImagingFilesystemHelper();
+    ImagingFilesystemHelper fsHelper = (ImagingFilesystemHelper) imaging.getImagingFilesystemHelper();
     BufferedImage bImg = fsHelper.read (
         pathOf_srcImage_from
     );

@@ -7,7 +7,6 @@ import java.nio.file.Path;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 
-import com.jaisocx.imaging.types.Rect;
 import com.jaisocx.imaging.helpers.helper_interface.ImagingFilesystemHelperInterface;
 import com.jaisocx.imaging.helpers.ImagingFilesystemHelper;
 
@@ -19,6 +18,9 @@ import com.jaisocx.imaging.BaseImaging;
 
 import com.jaisocx.imaging.ImageCropperInterface;
 import com.jaisocx.imaging.ImageCropper;
+
+import com.jaisocx.imaging.types.Rect;
+
 
 
 

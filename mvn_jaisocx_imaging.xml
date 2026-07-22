@@ -1,0 +1,65 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/3.8.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/3.8.0 http://maven.apache.org/xsd/assembly-3.8.0.xsd">
+  <id>jar-with-dependencies</id>
+  <formats>
+    <format>jar</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+
+  <dependencySets>
+    <dependencySet>
+      <outputDirectory>/</outputDirectory>
+      <unpack>true</unpack>
+    </dependencySet>
+  </dependencySets>
+
+  <moduleSets>
+    <moduleSet>
+      <useAllReactorProjects>true</useAllReactorProjects>
+      <sources>
+        <includeModuleDirectory>true</includeModuleDirectory>
+        <fileSets>
+          <fileSet>
+
+            <!-- Output directory inside the assembly -->
+            <outputDirectory>${project.basedir}/build</outputDirectory>
+
+            <!-- Directory to copy from -->
+            <directory>${project.basedir}/target/classes</directory>
+
+            <includes>
+              <include>com/jaisocx/**</include>
+              <include>resources/templates/**</include>
+              <include>node_cdn_installs/**</include>
+              <include>command/**</include>
+              <include>readme/**</include>
+            </includes>
+
+            <excludes>
+
+              <exclude>.env</exclude>
+              <exclude>.env*</exclude>
+              <exclude>**/.env</exclude>
+              <exclude>**/.env*</exclude>
+
+              <exclude>*.java</exclude>
+              <exclude>**/*.java</exclude>
+
+              <exclude>*.jar</exclude>
+              <exclude>**/*.jar</exclude>
+
+              <exclude>node_modules/**</exclude>
+              <exclude>**/node_modules/**</exclude>
+
+              <exclude>tmp/**</exclude>
+              <exclude>**/tmp/**</exclude>
+
+            </excludes>
+
+          </fileSet>
+        </fileSets>
+      </sources>
+    </moduleSet>
+  </moduleSets>
+</assembly>

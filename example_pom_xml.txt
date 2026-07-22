@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>jaisocx</groupId>
+    <artifactId>jaisocx_imaging</artifactId>
+    <version>2.1.4</version>
+    <packaging>jar</packaging>
+
+    <dependencies>
+    </dependencies>
+
+    <properties>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <defaultGoal>package</defaultGoal>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <outputDirectory>target/classes</outputDirectory>
+
+        <resources>
+
+            <!-- base -->
+            <resource>
+                <directory>${project.basedir}/</directory>
+                <includes>
+                    <include>produced_images.html</include>
+
+                    <include>README.md</include>
+                    <include>readme/*.md</include>
+                    <include>readme/**/*.md</include>
+                    <include>readme/images/**</include>
+
+                    <!-- <include>src/main/resources/templates/**</include> -->
+
+                    <include>command/*.sh</include>
+                    <include>command/example_env_*</include>
+                    <include>command/**/*.sh</include>
+
+                    <include>node_cdn_installs/favicons/**</include>
+                    <include>node_cdn_installs/software_labels/**</include>
+                    <include>node_cdn_installs/package.json</include>
+                    <include>node_cdn_installs/package-lock.json</include>
+                </includes>
+                <excludes>
+                    <exclude>.mvn/**</exclude>
+                    <exclude>.idea/**</exclude>
+                    <exclude>.vscode/**</exclude>
+                    <exclude>build/**</exclude>
+                    <exclude>produced/**</exclude>
+                    <exclude>target/**</exclude>
+                    <exclude>node_modules/**</exclude>
+                    <exclude>**/node_modules/**</exclude>
+                </excludes>
+            </resource>
+
+
+            <!-- readme -->
+            <!-- <resource>
+                <directory>readme</directory>
+                <includes>
+                    <include>*.md</include>
+                    <include>**/*.md</include>
+                    <include>*.html</include>
+                    <include>**/*.html</include>
+                </includes>
+                <excludes>
+                    <exclude>node_modules/**</exclude>
+                    <exclude>**/node_modules/**</exclude>
+                </excludes>
+            </resource> -->
+
+
+            <!-- command -->
+            <!-- <resource>
+                <directory>command</directory>
+                <includes>
+                    <include>*.sh</include>
+                    <include>**/*.sh</include>
+                    <include>example_env_*</include>
+                </includes>
+                <excludes>
+                    <exclude>**/.env*</exclude>
+                    <exclude>.env*</exclude>
+                    <exclude>env*</exclude>
+                </excludes>
+            </resource> -->
+
+
+            <!-- html templates -->
+            <resource>
+                <directory>src/main</directory>
+                <includes>
+                    <include>resources/templates/**</include>
+                    <include>resources/images/**</include>
+                </includes>
+                <excludes>
+                    <exclude>resources/tmp/**</exclude>
+                </excludes>
+            </resource>
+
+
+            <!-- node_cdn_installs -->
+            <!-- <resource>
+                <directory>node_cdn_installs</directory>
+                <includes>
+                    <include>package.json</include>
+                </includes>
+                <excludes>
+                    <exclude>node_modules/**</exclude>
+                    <exclude>**/node_modules/**</exclude>
+                </excludes>
+            </resource> -->
+
+        </resources>
+
+
+        <plugins>
+            <plugin>
+                <!-- Source: https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-assembly-plugin -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.8.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>jaisocx_imaging</finalName>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <outputDirectory>${project.basedir}/build</outputDirectory>
+                            <archive>
+                                <manifest>
+                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                    <addClasspath>true</addClasspath>
+                                    <mainClass>com.jaisocx.app.MiniImageProducer</mainClass>
+                                </manifest>
+                            </archive>
+                            <descriptors>
+                                <descriptor>${project.basedir}/mvn_jaisocx_imaging.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <!-- Source: https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.14.0</version>
+                <configuration>
+                    <release>17</release>
+                    <target>17</target>
+                    <includes>
+                        <include>*.java</include>
+                        <include>**/*.java</include>
+                        <include>resources/templates/**</include>
+                        <include>resources/images/**</include>
+                    </includes>
+                    <excludes>
+                        <exclude>resources/tmp/**</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

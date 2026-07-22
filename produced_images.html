@@ -33,7 +33,7 @@
   <style name="clean_start_overrides">
 
     .jsx {
-      --jsx--css-clean-start-2--rem: 16px;
+      --jsx--css-clean-start-2--rem: 14px;
 
       --jsx--css-clean-start-2--site--min-width: 93%;
       --jsx--css-clean-start-2--site--width: 93%;
@@ -62,7 +62,7 @@
     }
 
     html.jsx produced_images.images.big {
-      --image-size: 20rem;
+      --image-size: 5rem;
     }
 
     html.jsx produced_images.images.little {
@@ -88,15 +88,15 @@
       display: inline-block;
       text-align: center;
 
-      height: var(--image-size);
       width: var(--image-size);
+      height: fit-content;
 
       border: 1px solid navy;
       background: white;
 
       overflow: hidden hidden;
 
-      margin-bottom: 0.4rem;
+      margin: 1rem 1rem 1rem 1rem;
     }
 
     html.jsx produced_images.images item_image img {
@@ -108,9 +108,10 @@
 
       min-width: 1px;
       max-width: 100%;
-      width: auto;
+      width: 100%;
 
-      border: 1px dashed black;
+      /* border: 1px dashed black; */
+      border-width: 0;
 
       overflow: hidden hidden;
     }
@@ -128,7 +129,7 @@
 
 
 
-  <produced_images class="images little">
+  <produced_images class="images big">
 
     <item_image>
       <img

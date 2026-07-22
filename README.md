@@ -1,17 +1,22 @@
+
+![node_cdn_installs/software_labels/softlabel_jaisocx.svg](./node_cdn_installs/software_labels/softlabel_jaisocx.svg)
+
 `Jaisocx Java Packages`
 
 # Imaging
   > 💡 Simple methods: copy, copy overlay, crop, convert.
   > 
   > ❌ doesn't do: ImageConverter.
+  > 
+  > ❌ com.jaisocx.tools.Combiner was hardcopied until I've written base libraries for publishing and installation via Maven.
 
 
 
-| 📖️ **Library**  | `jaisocx_imaging` | 🏷️ **ver.**: `2.1` |
+| 📖️ **Library**  | `jaisocx_imaging` | 🏷️ **ver.**: `2.3.7` |
 
-| 🗓 **Updated**  | 🌷 Spring 2026 | `Sam, 30 mai 2026 23:56:22 UTC` |
+| 🗓 **Updated**  | 🌼  Summer 2026 | `Wed, 22 Jul. 2026 18:12:21 UTC 24h` |
 
-| 📐 **Size**     | 🗂 Folder: 200 KB | 📦 .jar: 155 KB | 📋 .java: 66 KB | 
+| 📐 **Size**     | 🗂 Folder: 200 KB | 📦 .jar: 3 MB | 📋 .java: 190 KB | 
 
 ---
 
