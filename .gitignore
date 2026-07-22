@@ -1,21 +1,29 @@
 
-/.vscode
-/.idea
+/.vscode/*.json
+/.vscode/**/*.json
 
-/produced
-/src/main/resources
+/.idea/*.xml
+/.idea/**/*.xml
 
-/*.jar
-/**/*.jar
-
-/target
-
-/.counter
+/pom.xml
 
 /.env
 /.env*
 /**/.env
 /**/.env*
+
+
+
+/produced/
+/src/main/resources/tmp/
+/command/.counter
+/command/envs_*
+/target
+
+
+/*.jar
+/**/*.jar
+
 
 /node_modules
 /**/node_modules
