@@ -4,7 +4,10 @@ produced_image_preview_name="image_"
 
 
 
-. "./command/.env_cropper_one_multiple"
+set a+
+
+source "./command/.env_cropper_one_multiple"
+
 
 
 #; java -cp "${pathof_jar}" \

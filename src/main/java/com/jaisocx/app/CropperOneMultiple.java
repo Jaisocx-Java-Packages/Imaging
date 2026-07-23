@@ -25,22 +25,34 @@ import com.jaisocx.helpers.JaisocxArrayHelper;
 import com.jaisocx.tools.combiner.CombinerFlatArrays;
 
 
+
 public class CropperOneMultiple {
+
+  public String path_tpl_HtmlPreviewSPA = "./src/main/resources/templates/produced_images.html";
+  public String path_tpl_imageHtml = "./src/main/resources/templates/image.html";
 
   public String tpl_HtmlPreviewSPA = new String();
   public String tpl_imageHtml = new String();
 
-  public static void main (String[] args) {
 
-    if ( args.length < 3 ) {
-      return;
+
+  public static int main (String[] args) {
+
+    if ( args.length < 2 ) {
+      return 1;
     }
 
-    CropperOneMultiple cropperOneMultiple = ( new CropperOneMultiple() );
+
+    boolean b_printsToConsole_true = true;
+
+    String cli_imageVer = args[0];
+
+    String cli_pathOf_srcImage_from = args[16];
+    String cli_pathOf_ProducedImageParent_to = args[14];
+    String cli_nameOf_ProducedImage_to = args[15];
+    ImageFormatEnum imageFormatTo = ImageFormatEnum.fromString( args[5] );
 
 
-
-    boolean printsToConsole_true = true;
 
     Rect srcImage_Rect = new Rect();
     srcImage_Rect.y = Integer.valueOf( args[1] );
@@ -48,82 +60,117 @@ public class CropperOneMultiple {
     srcImage_Rect.height = Integer.valueOf( args[3] );
     srcImage_Rect.width = Integer.valueOf( args[4] );
 
+    int cli_stepNextTry_pos_x = Integer.valueOf( args[6] );
+    int cli_stepNextTry_pos_y = Integer.valueOf( args[7] );
 
-    String imageVer = args[0];
+    int cli_stepNextTry_size_h = Integer.valueOf( args[8] );
+    int cli_stepNextTry_size_w = Integer.valueOf( args[9] );
 
-    String pathOf_ProducedImageParent_to = args[14];
-    String cli_nameOf_ProducedImage_to = args[15];
+    int cli_trialsNumber_pos_x = Integer.valueOf( args[10] );
+    int cli_trialsNumber_pos_y = Integer.valueOf( args[11] );
+
+    int cli_trialsNumber_size_h = Integer.valueOf( args[12] );
+    int cli_trialsNumber_size_w = Integer.valueOf( args[13] );
+
+    boolean b_offsetRemainsMiddle = false;
+
+
+
+    CropperOneMultiple cropperOneMultiple = ( new CropperOneMultiple() );
+    int cropped = cropperOneMultiple
+        .croppingMultiple (
+            cli_imageVer,
+            cli_pathOf_srcImage_from,
+            cli_pathOf_ProducedImageParent_to,
+            cli_nameOf_ProducedImage_to,
+            imageFormatTo,
+            srcImage_Rect,
+            cli_stepNextTry_pos_x,
+            cli_stepNextTry_pos_y,
+            cli_stepNextTry_size_h,
+            cli_stepNextTry_size_w,
+            cli_trialsNumber_pos_x,
+            cli_trialsNumber_pos_y,
+            cli_trialsNumber_size_h,
+            cli_trialsNumber_size_w,
+            b_offsetRemainsMiddle,
+            b_printsToConsole_true
+        );
+
+    return cropped;
+  }
+
+
+
+  public int croppingMultiple (
+      String cli_imageVer,
+      String cli_pathOf_srcImage_from,
+      String cli_pathOf_ProducedImageParent_to,
+      String cli_nameOf_ProducedImage_to,
+      ImageFormatEnum imageFormatTo,
+      Rect srcImage_Rect,
+      int cli_stepNextTry_pos_x,
+      int cli_stepNextTry_pos_y,
+      int cli_stepNextTry_size_h,
+      int cli_stepNextTry_size_w,
+      int cli_trialsNumber_pos_x,
+      int cli_trialsNumber_pos_y,
+      int cli_trialsNumber_size_h,
+      int cli_trialsNumber_size_w,
+      boolean b_offsetRemainsMiddle,
+      boolean b_printsToConsole
+  ) {
+
+    int retVal = 3;
+
     String nameOf_ProducedImage_to = cli_nameOf_ProducedImage_to;
     String pathOf_ProducedImage_to = "./img.png";
 
-    String pathOf_srcImage_from = args[16];
-
-    ImageFormatEnum imageFormatTo = ImageFormatEnum.fromString( args[5] );
     String filenameExtensionOf_producedImage_to = imageFormatTo.getFilenameExtension();
-    long written = 1L;
-
-
-
-    int stepNextTry_pos_x = Integer.valueOf( args[6] );
-    int stepNextTry_pos_y = Integer.valueOf( args[7] );
-
-    int stepNextTry_size_h = Integer.valueOf( args[8] );
-    int stepNextTry_size_w = Integer.valueOf( args[9] );
-
-    int trialsNumber_pos_x = Integer.valueOf( args[10] );
-    int trialsNumber_pos_y = Integer.valueOf( args[11] );
-
-    int trialsNumber_size_h = Integer.valueOf( args[12] );
-    int trialsNumber_size_w = Integer.valueOf( args[13] );
-
-    boolean offsetRemainsMiddle = false;
-
-
-
-    Combiner combiner = new Combiner();
-    CombinerFlatArrays combinerFlatArrays = new CombinerFlatArrays();
 
     Imaging imaging = new Imaging();
     ImagingFilesystemHelper fsHelper = (ImagingFilesystemHelper) imaging.getImagingFilesystemHelper();
     BufferedImage bImg = fsHelper.read (
-        pathOf_srcImage_from
+        cli_pathOf_srcImage_from
     );
 
+    Combiner combiner = new Combiner();
+    CombinerFlatArrays combinerFlatArrays = new CombinerFlatArrays();
 
     ArrayList<Integer> list_x = combinerFlatArrays.getIntegerFlatArray (
         srcImage_Rect.x,
-        stepNextTry_pos_x,
-        trialsNumber_pos_x,
+        cli_stepNextTry_pos_x,
+        cli_trialsNumber_pos_x,
         0,
         bImg.getWidth(),
-        offsetRemainsMiddle
+        b_offsetRemainsMiddle
     );
 
     ArrayList<Integer> list_y = combinerFlatArrays.getIntegerFlatArray (
         srcImage_Rect.y,
-        stepNextTry_pos_y,
-        trialsNumber_pos_y,
+        cli_stepNextTry_pos_y,
+        cli_trialsNumber_pos_y,
         0,
         bImg.getHeight(),
-        offsetRemainsMiddle
+        b_offsetRemainsMiddle
     );
 
     ArrayList<Integer> listSizes_h = combinerFlatArrays.getIntegerFlatArray (
         srcImage_Rect.height,
-        stepNextTry_size_h,
-        trialsNumber_size_h,
+        cli_stepNextTry_size_h,
+        cli_trialsNumber_size_h,
         0,
         bImg.getHeight(),
-        offsetRemainsMiddle
+        b_offsetRemainsMiddle
     );
 
     ArrayList<Integer> listSizes_w = combinerFlatArrays.getIntegerFlatArray (
         srcImage_Rect.width,
-        stepNextTry_size_w,
-        trialsNumber_size_w,
+        cli_stepNextTry_size_w,
+        cli_trialsNumber_size_w,
         0,
         bImg.getWidth(),
-        offsetRemainsMiddle
+        b_offsetRemainsMiddle
     );
 
 
@@ -135,16 +182,18 @@ public class CropperOneMultiple {
     );
 
 
-    char[] cbuf = (new char[]{});
-    cbuf = cropperOneMultiple.readHtmlFile( "./src/main/resources/templates/produced_images.html" );
-    cropperOneMultiple.tpl_HtmlPreviewSPA = String.copyValueOf( cbuf );
 
-    cbuf = cropperOneMultiple.readHtmlFile( "./src/main/resources/templates/image.html" );
-    cropperOneMultiple.tpl_imageHtml = String.copyValueOf( cbuf );
+    char[] cbuf_tpl_HtmlPreviewSPA = (new char[]{});
+    cbuf_tpl_HtmlPreviewSPA = this.readHtmlFile( this.path_tpl_HtmlPreviewSPA );
+    this.tpl_HtmlPreviewSPA = String.copyValueOf( cbuf_tpl_HtmlPreviewSPA );
+
+    char[] cbuf_tpl_imageHtml = (new char[]{});
+    cbuf_tpl_imageHtml = this.readHtmlFile( this.path_tpl_imageHtml );
+    this.tpl_imageHtml = String.copyValueOf( cbuf_tpl_imageHtml );
 
 
 
-    String[] str_template_a = cropperOneMultiple.tpl_HtmlPreviewSPA.split( "\\{\\{ htmlImagesBlock \\}\\}" );
+    String[] str_template_a = this.tpl_HtmlPreviewSPA.split( "\\{\\{ htmlImagesBlock \\}\\}" );
     String[] str_template_b = new String[] {
         str_template_a[0],
         "< tpl image >",
@@ -159,8 +208,8 @@ public class CropperOneMultiple {
 
 
 
-    combinations.forEach(combinationItem -> cropperOneMultiple.produceCombined (
-        pathOf_ProducedImageParent_to,
+    combinations.forEach(combinationItem -> this.produceCombined (
+        cli_pathOf_ProducedImageParent_to,
         cli_nameOf_ProducedImage_to,
         bImg,
         (Integer) combinationItem.get(0),
@@ -177,7 +226,6 @@ public class CropperOneMultiple {
     );
 
 
-
     String s_htmlImagesBlock = JaisocxArrayHelper.concat( io_htmlImagesBlock );
     a_htmlTemplate.set( 1, s_htmlImagesBlock );
 
@@ -189,56 +237,23 @@ public class CropperOneMultiple {
     try {
       fileWriter = new FileWriter( f_htmlPreview );
       fileWriter.write( s_html );
-    } catch( Exception e ){
+    } catch ( Exception e ){
       Logger.getLogger("logger_jaisocx_imaging").log (Level.ALL, e.getMessage() );
+      throw new RuntimeException( e );
     }
 
     try {
       fileWriter.close();
-    } catch( Exception e ){
+    } catch ( Exception e ){
       Logger.getLogger("logger_jaisocx_imaging").log (Level.ALL, e.getMessage() );
+      throw new RuntimeException( e );
     }
 
     f_htmlPreview = null;
     fileWriter = null;
 
-  }
 
-
-  public char[] readHtmlFile (
-      String tplPath
-  ) {
-
-    File f_tpl = new File( tplPath );
-    long tpl_FileSize = f_tpl.length();
-    int i_tpl_FileSize = (int)tpl_FileSize;
-    FileReader fileReader = null;
-    char[] cbuf = new char[i_tpl_FileSize];
-
-    try {
-      fileReader = new FileReader( f_tpl );
-      int hasRead = fileReader.read( cbuf, 0, i_tpl_FileSize );
-
-      if ( hasRead < 10 ) {
-        throw new RuntimeException( "Template html wasn't found" );
-      }
-
-    } catch( Exception e ) {
-      Logger.getLogger("logger_jaisocx_imaging").log (Level.ALL, e.getMessage() );
-      throw new RuntimeException( e );
-    }
-
-
-    try {
-      fileReader.close();
-    } catch( Exception e ){
-      Logger.getLogger("logger_jaisocx_imaging").log (Level.ALL, e.getMessage() );
-    }
-
-    f_tpl = null;
-    fileReader = null;
-
-    return cbuf;
+    return retVal;
   }
 
 
@@ -306,7 +321,8 @@ public class CropperOneMultiple {
     File file = new File( pathOf_ProducedImage_to );
     try {
       abs_pathOf_ProducedImage_to = file.getCanonicalPath();
-    } catch (IOException e) {
+    } catch ( IOException e) {
+      Logger.getLogger("logger_jaisocx_imaging").log (Level.ALL, e.getMessage() );
       throw new RuntimeException(e);
     }
     file = null;
@@ -352,6 +368,45 @@ public class CropperOneMultiple {
     io_htmlImagesBlock.add( imageHtml_b );
 
     return 1L;
+  }
+
+
+
+  public char[] readHtmlFile (
+      String tplPath
+  ) {
+
+    File f_tpl = new File( tplPath );
+    long tpl_FileSize = f_tpl.length();
+    int i_tpl_FileSize = (int)tpl_FileSize;
+    FileReader fileReader = null;
+    char[] cbuf = new char[i_tpl_FileSize];
+
+    try {
+      fileReader = new FileReader( f_tpl );
+      int hasRead = fileReader.read( cbuf, 0, i_tpl_FileSize );
+
+      if ( hasRead < 10 ) {
+        throw new RuntimeException( "Template html wasn't found" );
+      }
+
+    } catch ( Exception e ) {
+      Logger.getLogger("logger_jaisocx_imaging").log (Level.ALL, e.getMessage() );
+      throw new RuntimeException( e );
+    }
+
+
+    try {
+      fileReader.close();
+    } catch ( Exception e ){
+      Logger.getLogger("logger_jaisocx_imaging").log (Level.ALL, e.getMessage() );
+      throw new RuntimeException( e );
+    }
+
+    f_tpl = null;
+    fileReader = null;
+
+    return cbuf;
   }
 
 }
