@@ -357,6 +357,7 @@ public class CropperOneMultiple {
     );
 
 
+
     imageHtml_a = this.tpl_imageHtml.replaceAll( "\\{\\{ nameOf_ProducedImage_to \\}\\}", nameOf_ProducedImage_to );
     imageHtml_b = imageHtml_a.replaceFirst( "\\{\\{ abs_pathOf_ProducedImage_to \\}\\}", abs_pathOf_ProducedImage_to );
 

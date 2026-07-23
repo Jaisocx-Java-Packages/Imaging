@@ -6,7 +6,7 @@
 
     <groupId>jaisocx</groupId>
     <artifactId>jaisocx_imaging</artifactId>
-    <version>2.1.4</version>
+    <version>2.1.223</version>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -142,7 +142,7 @@
                                 <manifest>
                                     <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                                     <addClasspath>true</addClasspath>
-                                    <mainClass>com.jaisocx.app.MiniImageProducer</mainClass>
+                                    <mainClass>com.jaisocx.app.CropperOne</mainClass>
                                 </manifest>
                             </archive>
                             <descriptors>
