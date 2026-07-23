@@ -22,11 +22,23 @@ import com.jaisocx.imaging.Imaging;
 
 import com.jaisocx.imaging.types.Rect;
 import com.jaisocx.helpers.JaisocxArrayHelper;
+import com.jaisocx.tools.combiner.CombinerFlatArrays;
 
 
 public class CropperOneMultiple {
 
+  public String tpl_HtmlPreviewSPA = new String();
+  public String tpl_imageHtml = new String();
+
   public static void main (String[] args) {
+
+    if ( args.length < 3 ) {
+      return;
+    }
+
+    CropperOneMultiple cropperOneMultiple = ( new CropperOneMultiple() );
+
+
 
     boolean printsToConsole_true = true;
 
@@ -64,37 +76,56 @@ public class CropperOneMultiple {
     int trialsNumber_size_h = Integer.valueOf( args[12] );
     int trialsNumber_size_w = Integer.valueOf( args[13] );
 
+    boolean offsetRemainsMiddle = false;
+
 
 
     Combiner combiner = new Combiner();
-    Integer[] x = new Integer[] {
-        ( srcImage_Rect.x ),
-        ( srcImage_Rect.x + stepNextTry_pos_x ),
-        ( srcImage_Rect.x + ( stepNextTry_pos_x * 2 ) ),
-        ( srcImage_Rect.x + ( stepNextTry_pos_x * 3 ) ),
-        ( srcImage_Rect.x + ( stepNextTry_pos_x * 4 ) )
-    };
+    CombinerFlatArrays combinerFlatArrays = new CombinerFlatArrays();
 
-    Integer[] y = new Integer[] {
-        ( srcImage_Rect.y ),
-        // ( srcImage_Rect.y + stepNextTry_pos_y ),
-    };
+    Imaging imaging = new Imaging();
+    ImagingFilesystemHelper fsHelper = (ImagingFilesystemHelper) imaging.getImagingFilesystemHelper();
+    BufferedImage bImg = fsHelper.read (
+        pathOf_srcImage_from
+    );
 
-    Integer[] sizes_h = new Integer[] {
-        ( srcImage_Rect.height ),
-        // ( srcImage_Rect.height + stepNextTry_size_h ),
 
-    };
+    ArrayList<Integer> list_x = combinerFlatArrays.getIntegerFlatArray (
+        srcImage_Rect.x,
+        stepNextTry_pos_x,
+        trialsNumber_pos_x,
+        0,
+        bImg.getWidth(),
+        offsetRemainsMiddle
+    );
 
-    Integer[] sizes_w = new Integer[] {
-        ( srcImage_Rect.width ),
-        // ( srcImage_Rect.width + stepNextTry_size_w ),
-    };
+    ArrayList<Integer> list_y = combinerFlatArrays.getIntegerFlatArray (
+        srcImage_Rect.y,
+        stepNextTry_pos_y,
+        trialsNumber_pos_y,
+        0,
+        bImg.getHeight(),
+        offsetRemainsMiddle
+    );
 
-    List<Integer> list_x = Arrays.asList( x );
-    List<Integer> list_y = Arrays.asList( y );
-    List<Integer> listSizes_h = Arrays.asList( sizes_h );
-    List<Integer> listSizes_w = Arrays.asList( sizes_w );
+    ArrayList<Integer> listSizes_h = combinerFlatArrays.getIntegerFlatArray (
+        srcImage_Rect.height,
+        stepNextTry_size_h,
+        trialsNumber_size_h,
+        0,
+        bImg.getHeight(),
+        offsetRemainsMiddle
+    );
+
+    ArrayList<Integer> listSizes_w = combinerFlatArrays.getIntegerFlatArray (
+        srcImage_Rect.width,
+        stepNextTry_size_w,
+        trialsNumber_size_w,
+        0,
+        bImg.getWidth(),
+        offsetRemainsMiddle
+    );
+
 
     List<List<Object>> combinations = Combiner.combine (
         list_x,
@@ -104,42 +135,19 @@ public class CropperOneMultiple {
     );
 
 
-    Imaging imaging = new Imaging();
-    ImagingFilesystemHelper fsHelper = (ImagingFilesystemHelper) imaging.getImagingFilesystemHelper();
-    BufferedImage bImg = fsHelper.read (
-        pathOf_srcImage_from
-    );
+    char[] cbuf = (new char[]{});
+    cbuf = cropperOneMultiple.readHtmlFile( "./src/main/resources/templates/produced_images.html" );
+    cropperOneMultiple.tpl_HtmlPreviewSPA = String.copyValueOf( cbuf );
 
-    String templateHtmlImagesBlock = new String();
-    File f_templateHtmlImagesBlock = new File( "./src/main/resources/templates/produced_images.html" );
-    long templateFileSize = f_templateHtmlImagesBlock.length();
-    int i_templateFileSize = (int)templateFileSize;
-    FileReader fileReader = null;
-    char[] cbuf = new char[i_templateFileSize];
-    try {
-      fileReader = new FileReader( f_templateHtmlImagesBlock );
-      int hasRead = fileReader.read( cbuf, 0, i_templateFileSize );
-    } catch( Exception e ) {
-      Logger.getLogger("logger_jaisocx_imaging").log (Level.ALL, e.getMessage() );
-    }
-
-    try {
-      fileReader.close();
-    } catch( Exception e ){
-      Logger.getLogger("logger_jaisocx_imaging").log (Level.ALL, e.getMessage() );
-    }
-
-    f_templateHtmlImagesBlock = null;
-    fileReader = null;
-
-    templateHtmlImagesBlock = String.copyValueOf( cbuf );
+    cbuf = cropperOneMultiple.readHtmlFile( "./src/main/resources/templates/image.html" );
+    cropperOneMultiple.tpl_imageHtml = String.copyValueOf( cbuf );
 
 
 
-    String[] str_template_a = templateHtmlImagesBlock.split( "\\{\\{ htmlImagesBlock \\}\\}" );
-    String[] str_template_b = new String[]{
+    String[] str_template_a = cropperOneMultiple.tpl_HtmlPreviewSPA.split( "\\{\\{ htmlImagesBlock \\}\\}" );
+    String[] str_template_b = new String[] {
         str_template_a[0],
-        templateHtmlImagesBlock,
+        "< tpl image >",
         str_template_a[1]
     };
     List<String> htmlTemplate = Arrays.asList( str_template_b );
@@ -150,7 +158,8 @@ public class CropperOneMultiple {
     ArrayList<String> io_htmlImagesBlock = ( new ArrayList<String>( htmlImagesBlock ) );
 
 
-    combinations.forEach(combinationItem -> CropperOneMultiple.produceCombined (
+
+    combinations.forEach(combinationItem -> cropperOneMultiple.produceCombined (
         pathOf_ProducedImageParent_to,
         cli_nameOf_ProducedImage_to,
         bImg,
@@ -193,99 +202,48 @@ public class CropperOneMultiple {
     f_htmlPreview = null;
     fileWriter = null;
 
+  }
 
 
-    /*
-    BufferedImage producedBufImage = null;
+  public char[] readHtmlFile (
+      String tplPath
+  ) {
 
-    int posX = 1;
-    int counter = 1;
-    int trialIx = 1;
-    int imageCounter = 1;
-    int COUNTER_CORRECTION = 2;
-    int IMG_COUNTER_CORRECTION = 1;
+    File f_tpl = new File( tplPath );
+    long tpl_FileSize = f_tpl.length();
+    int i_tpl_FileSize = (int)tpl_FileSize;
+    FileReader fileReader = null;
+    char[] cbuf = new char[i_tpl_FileSize];
 
-    int trialsNumber_max = trialsNumber_pos_x;
+    try {
+      fileReader = new FileReader( f_tpl );
+      int hasRead = fileReader.read( cbuf, 0, i_tpl_FileSize );
 
-    /* Start of block:
-         trials x position by step of next try position distance
-         in real raster px colour points
-    *
-    ci_trials_posX: while ( trialIx < trialsNumber_max ) {
-      counter++;
-      trialIx = ( counter - COUNTER_CORRECTION );
-      if ( trialIx >= trialsNumber_max ) {
-        break ci_trials_posX;
+      if ( hasRead < 10 ) {
+        throw new RuntimeException( "Template html wasn't found" );
       }
 
-      imageCounter = ( counter - IMG_COUNTER_CORRECTION );
-      nameOf_ProducedImage_to = (
-          cli_nameOf_ProducedImage_to
-          + "_by_step_x_"
-          + stepNextTry_pos_x
-          + "_"
-          + imageCounter
-      );
-
-      posX = srcImage_Rect.x;
-      srcImage_Rect.x = ( posX + stepNextTry_pos_x );
-
-      producedBufImage = imaging.cropBufferedImage (
-          bImg,
-          srcImage_Rect
-      );
-
-
-
-      pathOf_ProducedImage_to = (
-          pathOf_ProducedImageParent_to
-              + "/" + nameOf_ProducedImage_to
-              + "." + filenameExtensionOf_producedImage_to
-      );
-
-      written = fsHelper.write (
-          producedBufImage,
-          imageFormatTo,
-          pathOf_ProducedImage_to
-      );
-
-
-
-      /* temporarily paths aren't configured in ./.env.
-           the plan is, to produce html preview page by template renderer,
-           nearly same like for now the ./produced_images.html
-      *
-      pathOf_ProducedImage_to = (
-          "./produced/preview/"
-              + "image"
-              + "_"
-              + Integer.toString( imageCounter )
-              + "."
-              + filenameExtensionOf_producedImage_to
-      );
-
-      written = fsHelper.write (
-          producedBufImage,
-          imageFormatTo,
-          pathOf_ProducedImage_to
-      );
-
-
-
-      continue ci_trials_posX;
+    } catch( Exception e ) {
+      Logger.getLogger("logger_jaisocx_imaging").log (Level.ALL, e.getMessage() );
+      throw new RuntimeException( e );
     }
-    /* End of block:
-         trials x position by step of next try position distance
-         in real raster px colour points
-    *
 
-    */
 
+    try {
+      fileReader.close();
+    } catch( Exception e ){
+      Logger.getLogger("logger_jaisocx_imaging").log (Level.ALL, e.getMessage() );
+    }
+
+    f_tpl = null;
+    fileReader = null;
+
+    return cbuf;
   }
 
 
 
-  public static long produceCombined (
+  public long produceCombined (
       String pathOf_ProducedImageParent_to,
       String cli_nameOf_ProducedImage_to,
       BufferedImage bImg,
@@ -313,13 +271,7 @@ public class CropperOneMultiple {
     String imageHtml_a = "";
     String imageHtml_b = "";
 
-    String template = "    <item_image>\n" +
-        "      <img\n" +
-        "          title=\"{{ nameOf_ProducedImage_to }}\"\n" +
-        "          src=\"file://{{ abs_pathOf_ProducedImage_to }}\"\n" +
-        "          onerror=\"javascript: ( () => { this.style.display = 'none'; this.onerror = null; } )();\"\n" +
-        "      />\n" +
-        "    </item_image>\n\n";
+
 
     nameOf_ProducedImage_to = (
         cli_nameOf_ProducedImage_to
@@ -389,10 +341,13 @@ public class CropperOneMultiple {
     );
 
 
-
-
-    imageHtml_a = template.replaceFirst( "\\{\\{ nameOf_ProducedImage_to \\}\\}", nameOf_ProducedImage_to );
+    imageHtml_a = this.tpl_imageHtml.replaceAll( "\\{\\{ nameOf_ProducedImage_to \\}\\}", nameOf_ProducedImage_to );
     imageHtml_b = imageHtml_a.replaceFirst( "\\{\\{ abs_pathOf_ProducedImage_to \\}\\}", abs_pathOf_ProducedImage_to );
+
+    imageHtml_a = imageHtml_b.replaceFirst( "\\{\\{ x \\}\\}", Integer.toString( srcImage_Rect.x, 10 ) );
+    imageHtml_b = imageHtml_a.replaceFirst( "\\{\\{ y \\}\\}", Integer.toString( srcImage_Rect.y, 10 ) );
+    imageHtml_a = imageHtml_b.replaceFirst( "\\{\\{ h \\}\\}", Integer.toString( srcImage_Rect.height, 10 ) );
+    imageHtml_b = imageHtml_a.replaceFirst( "\\{\\{ w \\}\\}", Integer.toString( srcImage_Rect.width, 10 ) );
 
     io_htmlImagesBlock.add( imageHtml_b );
 

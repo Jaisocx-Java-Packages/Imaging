@@ -4,7 +4,7 @@ produced_image_preview_name="image_"
 
 
 
-source "./command/.env_cropper_one_multiple"
+. "./command/.env_cropper_one_multiple"
 
 
 #; java -cp "${pathof_jar}" \
@@ -14,7 +14,8 @@ source "./command/.env_cropper_one_multiple"
 
 
 
-java "${pathof_java_class}" \
+java -cp "${pathof_jar}" \
+  -verbose:class "${java_class}" \
   "${produced_image_ver}" \
   "${top}" \
   "${left}" \
