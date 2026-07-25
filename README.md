@@ -183,5 +183,6 @@ c. **Publish control** `.gitignore`:  📙  [readme/r_ignores.md](./readme/r_ign
   ```
 
 
+Have a nice day, ILLIA POLIANSKYI
 
 

@@ -69,3 +69,8 @@ If those work but Java doesn't: it may be a **variable font**, which Java 8–17
 ---
 
 Would you like a code snippet that auto-loads all `.ttf` files from a folder?
+
+
+Have a nice day, ILLIA POLIANSKYI
+
+
