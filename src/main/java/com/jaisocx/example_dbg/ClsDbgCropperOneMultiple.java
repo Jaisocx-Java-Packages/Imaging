@@ -21,25 +21,28 @@ public class ClsDbgCropperOneMultiple {
 
 
 
+    Integer sInt = Integer.valueOf(1);
+
     Rect srcImage_Rect = new Rect();
-    srcImage_Rect.y = Integer.valueOf( 120 );
-    srcImage_Rect.x = Integer.valueOf( 420 );
-    srcImage_Rect.height = Integer.valueOf( 400 );
-    srcImage_Rect.width = Integer.valueOf( 420 );
+    srcImage_Rect.y           = sInt.parseInt( "140" );
+    srcImage_Rect.x           = sInt.parseInt( "300" );
+    srcImage_Rect.height      = sInt.parseInt( "400" );
+    srcImage_Rect.width       = sInt.parseInt( "420" );
 
-    int cli_stepNextTry_pos_x = Integer.valueOf( 5 );
-    int cli_stepNextTry_pos_y = Integer.valueOf( 1 );
+    int cli_stepNextTry_pos_x = sInt.parseInt( "5" );
+    int cli_stepNextTry_pos_y = sInt.parseInt( "1" );
 
-    int cli_stepNextTry_size_h = Integer.valueOf( 1 );
-    int cli_stepNextTry_size_w = Integer.valueOf( 1 );
+    int cli_stepNextTry_size_h = sInt.parseInt( "1" );
+    int cli_stepNextTry_size_w = sInt.parseInt( "1" );
 
-    int cli_trialsNumber_pos_x = Integer.valueOf( 10 );
-    int cli_trialsNumber_pos_y = Integer.valueOf( 1 );
+    int cli_trialsNumber_pos_x = sInt.parseInt( "10" );
+    int cli_trialsNumber_pos_y = sInt.parseInt( "1" );
 
-    int cli_trialsNumber_size_h = Integer.valueOf( 1 );
-    int cli_trialsNumber_size_w = Integer.valueOf( 1 );
+    int cli_trialsNumber_size_h = sInt.parseInt( "1" );
+    int cli_trialsNumber_size_w = sInt.parseInt( "1" );
 
-    boolean b_offsetRemainsMiddle = false;
+    boolean b_offsetRemainsMiddle_false = false;
+    boolean b_offsetRemainsMiddle_true = true;
 
 
 
@@ -60,7 +63,7 @@ public class ClsDbgCropperOneMultiple {
             cli_trialsNumber_pos_y,
             cli_trialsNumber_size_h,
             cli_trialsNumber_size_w,
-            b_offsetRemainsMiddle,
+            b_offsetRemainsMiddle_true,
             b_printsToConsole_true
         );
 
