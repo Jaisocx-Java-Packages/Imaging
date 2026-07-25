@@ -113,7 +113,7 @@ public class CombinerFlatArrays {
 
 
 
-    loc_iterationsCount = ( decIterationsNumber + loc_counter_correction );
+    loc_iterationsCount = ( incIterationsNumber + loc_counter_correction );
     offset = 0;
     counter = 1;
     ci_step_inc: while ( counter < loc_iterationsCount ) {
