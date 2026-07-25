@@ -124,9 +124,9 @@ e.   ✅  Charset encoding utf8
   <version>2.3.8</version>
 ```
 
-
-
 ---
+
+
 
 **pom.xml**
 
@@ -137,21 +137,21 @@ e.   ✅  Charset encoding utf8
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- L1. Jaisocx Imaging library name -->
+    <!-- @1 Jaisocx Imaging library name -->
     <groupId>com.jaisocx</groupId>
     <artifactId>jaisocx_imaging</artifactId>
-    <!-- L1. Block-finish. Jaisocx Imaging library name -->
+    <!-- @1 Block-finish. Jaisocx Imaging library name -->
 
     <version>2.3.8</version>
     <packaging>jar</packaging>
 
-    <!-- L1. utf8 charset encoding of .java files -->
+    <!-- @1 utf8 charset encoding of .java files -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <!-- L1. Block-finish. utf8 charset encoding of .java files -->
+    <!-- @1 Block-finish. utf8 charset encoding of .java files -->
 
-    <!-- L1. libs installed via maven -->
+    <!-- @1 libs installed via maven -->
     <dependencies>
 
         <!-- Source: https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
@@ -171,15 +171,15 @@ e.   ✅  Charset encoding utf8
         </dependency>
 
     </dependencies>
-    <!-- L1. Block-finish. libs installed via maven -->
+    <!-- @1 Block-finish. libs installed via maven -->
 
-    <!-- L1. settings for Java compilation and building .jar -->
+    <!-- @1 settings for Java compilation and building .jar -->
     <build>
         <finalName>jaisocx_imaging</finalName>
         <sourceDirectory>${project.basedir}/src/main/java/</sourceDirectory>
         <outputDirectory>${project.basedir}/target/jar/</outputDirectory>
 
-        <!-- L2. folders and files hardcopies to compiled folder and .jar -->
+        <!-- @2 folders and files hardcopies to compiled folder and .jar -->
         <resources>
 
             <!-- base -->
@@ -265,12 +265,12 @@ e.   ✅  Charset encoding utf8
             </resource>
 
         </resources>
-        <!-- L2. Block-finish. folders and files hardcopies to compiled folder and .jar -->
+        <!-- @2 Block-finish. folders and files hardcopies to compiled folder and .jar -->
 
-        <!-- L2. Maven plugins for Java compilation -->
+        <!-- @2 Maven plugins for Java compilation -->
         <plugins>
 
-            <!-- L3. Plugin for Java compilation -->
+            <!-- @3 Plugin for Java compilation -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -301,9 +301,9 @@ e.   ✅  Charset encoding utf8
                     </execution>
                 </executions>
             </plugin>
-            <!-- L3. Block-finish. Plugin for Java compilation -->
+            <!-- @3 Block-finish. Plugin for Java compilation -->
 
-            <!-- L3. Plugin for .jar -->
+            <!-- @3 Plugin for .jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -371,12 +371,12 @@ e.   ✅  Charset encoding utf8
                     </execution>
                 </executions>
             </plugin>
-            <!-- L3. Block-finish. Plugin for .jar -->
+            <!-- @3 Block-finish. Plugin for .jar -->
 
         </plugins>
-        <!-- L2. Block-finish. Maven plugins for Java compilation -->
+        <!-- @2 Block-finish. Maven plugins for Java compilation -->
     </build>
-    <!-- L1. Block-finish. settings for Java compilation and building .jar -->
+    <!-- @1 Block-finish. settings for Java compilation and building .jar -->
 </project>
 ```
 
