@@ -1,40 +1,128 @@
 
+#; -- START-BLOCK [git-confirming-upates]/[IDEs-private-confs] --
+
+  #;  `/.vscode/launch.json` ain't in **git repo**,
+  #;    but `/.vscode/example_launch_json.txt` remains in **git repo**,
+  #;    and confirms to updates by `git pull`.
+
 /.vscode/*.json
 /.vscode/**/*.json
 
 /.idea/*.xml
 /.idea/**/*.xml
 
-/pom.xml
+#; -- FINISH-BLOCK [git-conforming-upates]/[IDEs-private-confs] --
+
+
+
+#; -- START-BLOCK Security --
 
 /.env
-/.env*
 /**/.env
+
+/.env*
 /**/.env*
 
+/env_*/
+/**/env_*/
 
 
-/produced/
-/src/main/resources/tmp/
-/command/.counter
-/command/envs_*
-/target
+  #; let's aim to make and keep backups)) Yohoo!
+
+/bkp/
+/**/bkp/
+
+/*_bkp/
+/**/*_bkp/
 
 
-/*.jar
-/**/*.jar
+  #; Just a name to be assured, will never get in public repo.
+  #;   in order to work securely,
+  #;   having known a folder or file wasn't aimed to publish.
+
+/tmp/
+/**/tmp/
+
+/*_tmp.*
+/**/*_tmp.*
 
 
-/node_modules
-/**/node_modules
+  #; Main classes for debugging purposes,
+  #;   having .env variables hardcoded as String variables
+  #;   in the main method `public static void main(String[] args)`
+
+/dbg/
+/**/dbg/
+
+
+  #; System messages journals might contain sensitive data.
+  #;   neverhteless, when no sensitive data,
+  #;   .log files and log folders could grow in time until many Gigabytes.
 
 /*.log
 /**/*.log
 
-/log
-/logs
-/**/log
-/**/logs
+/log/
+/**/log/
+
+/logs/
+/**/logs/
+
+#; -- FINISH-BLOCK Security --
+
+
+
+#; -- START-BLOCK Java-related --
+
+/pom.xml
+
+/*.jar
+/**/*.jar
+
+/target/
+
+#; -- FINISH-BLOCK Java-related --
+
+
+
+#; -- START-BLOCK [3rd parties libraries] --
+
+  #; php
+
+/vendor
+/**/vendor
+# /**/<folder>/composer.json
+# /**/<folder>/composer-lock.json
+
+
+  #; node, js, ts, javascript, typescript
+
+/node_modules
+/**/node_modules
+# /**/<folder>/package.json
+# /**/<folder>/package-lock.json
+# /**/<folder>/yarn.lock
+
+#; -- FINISH-BLOCK [3rd parties libraries] --
+
+
+
+#; -- START-BLOCK Current-lib-related --
+
+  #; folder for images produced, might be many Gigabytes
+
+/produced/
+/src/main/resources/tmp/
+
+
+  #; workarounds for Java via command line shell
+
+/command/.counter
+/command/envs_*
+
+#; -- FINISH-BLOCK Current-lib-related --
+
+
 
 /.DS_Store
 /**/.DS_Store
