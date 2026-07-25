@@ -17,14 +17,11 @@
 
 | 🗓 **Updated**  | 🌼  Summer 2026 | `Sunday, 25th month July in year AD 2026 17:43:20 UTC 24h` |
 
-
 ---
 
-**Notice**: I'm on seeing around for pom.xml variables ...
 
 
-
-### Configured
+## Configured
 
 a.   ✅  control inclusions to .jar
 
@@ -42,7 +39,7 @@ f.   ✅  `pom.xml` variables
 
 
 
-#### a. control inclusions to .jar
+### a. control inclusions to .jar
 
   >  💡  500.00 MB = 512_000.0 KB ( uncontrolled included logs, testing and development time resources ),
   >
@@ -57,7 +54,7 @@ f.   ✅  `pom.xml` variables
 
 
 
-####  💡  Main Java configurations
+###  💡  Main Java configurations
 
 - **Main Java Class**: `<mainClass>com.jaisocx.app.CropperOneMultiple</mainClass>` by doubleclick on `jaisocx_imaging.jar`
 
@@ -71,7 +68,7 @@ f.   ✅  `pom.xml` variables
 
 
 
-####  💡  Current library configurations
+###  💡  Current library configurations
 
 - **Main Java Class**: `<mainClass>com.jaisocx.app.CropperOneMultiple</mainClass>` by doubleclick on `jaisocx_imaging.jar`
 
@@ -85,7 +82,7 @@ f.   ✅  `pom.xml` variables
 
 
 
-####  💡  Paths of folders: compile, build .jar
+###  💡  Paths of folders: compile, build .jar
 
 - Folder for the **.jar** (outputDirectory): `<outputDirectory>${project.basedir}/build/</outputDirectory>` -> `build/jaisocx_imaging.jar`
 
@@ -97,12 +94,12 @@ f.   ✅  `pom.xml` variables
 
 
 
-####  💡  Charset encoding utf8
+###  💡  Charset encoding utf8
 
 - Text files saved with **charset encoding**: `<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>`
 
 
-####  💡  pom.xml variables
+###  💡  pom.xml variables
 
 ```xml
   <properties>
@@ -116,7 +113,7 @@ f.   ✅  `pom.xml` variables
 
 
 
-####  💡  pom.xml several xml elems for changes
+###  💡  pom.xml several xml elems for changes
 
 ```xml 
   <mainClass>com.jaisocx.app.CropperOneMultiple</mainClass>
@@ -139,6 +136,11 @@ f.   ✅  `pom.xml` variables
 
 ---
 
+
+
+### Example
+
+  >  💡  `example_pom_xml.txt` -> `pom.xml`
 
 
 **pom.xml**
