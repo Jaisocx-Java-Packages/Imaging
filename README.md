@@ -12,14 +12,28 @@
 
 
 
-| 📖️ **Library**  | `jaisocx_imaging` | 🏷️ **ver.**: `2.3.7` |
+| 📖️ **Library**  | `jaisocx_imaging` | 🏷️ **ver.**: `2.3.8` |
 
-| 🗓 **Updated**  | 🌼  Summer 2026 | `Wed, 22 Jul. 2026 18:12:21 UTC 24h` |
+| 🗓 **Updated**  | 🌼  Summer 2026 | `Satturday, 25 Jul. 2026 03:45:20 UTC 24h` |
 
-| 📐 **Size**     | 🗂 Folder: 200 KB | 📦 .jar: 3 MB | 📋 .java: 190 KB | 
+| 📐 **Size**     | 🗂 Folder: 1.4 MB | 📦 .jar: 51 KB | 📋 .java: 190 KB | 
+
+| **Build tool for Java projects Conf** |  ✅  Maven |
 
 ---
 
+
+
+## Build tools for Java projects
+
+-   ✅  **Maven**: Config gitignored: `./example_pom_xml.txt` -> `pom.xml`
+
+```bash
+  mvn clean
+  mvn compile
+  mvn package
+```
+  
 
 
 ![./readme/images/spread_shutterstock_464833178_550.jpg](./readme/images/spread_shutterstock_464833178_550.jpg)
