@@ -1,6 +1,22 @@
-## Font load bugfix
 
-### ✅ **How to Properly Load a `.ttf` Font in Java**
+![../node_cdn_installs/software_labels/softlabel_jaisocx.svg](../node_cdn_installs/software_labels/softlabel_jaisocx.svg)
+
+`Jaisocx Java Packages`
+
+
+-  📙  [HOME](../README.md)
+
+-  📚  [HOME readme](./README.md)
+
+
+
+
+# Loading Font
+
+  >  💡  Loading a `.ttf` Font in Java
+
+
+**FontLoader Java class**
 
 ```java
 import java.awt.Font;

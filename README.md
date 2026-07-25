@@ -3,6 +3,10 @@
 
 `Jaisocx Java Packages`
 
+
+-  📙  You are HOME
+
+
 # Imaging
   > 💡 Simple methods: copy, copy overlay, crop, convert.
   > 
@@ -21,6 +25,26 @@
 | **Build tool for Java projects Conf** |  ✅  Maven |
 
 ---
+
+
+
+## News
+ 
+- 🗓  🌼  Summer 2026, 25 July 2026 **documentation and examples on building .jars and pushing to Git repo.** `pom.xml` and `.gitignore`
+
+---
+
+
+
+##  📚 README
+
+  >  **Contents**:  📚  [readme/README.md](./readme/README.md)
+
+a. **Loading Font**:  📙  [readme/r_font.md](./readme/r_font.md)
+
+b. **Maven conf** `pom.xml`:  📙  [readme/r_maven.md](./readme/r_maven.md)
+
+c. **Publish control** `.gitignore`:  📙  [readme/r_ignores.md](./readme/r_ignores.md)
 
 
 

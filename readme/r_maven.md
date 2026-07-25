@@ -1,6 +1,13 @@
 
 ![../node_cdn_installs/software_labels/softlabel_jaisocx.svg](../node_cdn_installs/software_labels/softlabel_jaisocx.svg)
 
+`Jaisocx Java Packages`
+
+
+-  📙  [HOME](../README.md)
+
+-  📚  [HOME readme](./README.md)
+
 
 
 # build via maven
