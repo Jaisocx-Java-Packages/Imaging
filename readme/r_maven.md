@@ -15,7 +15,7 @@
   >  💡  the nice example of `pom.xml`, the Maven configuration file.
 
 
-| 🗓 **Updated**  | 🌼  Summer 2026 | `Sunday, 25th month July in year AD 2026 17:43:20 UTC 24h` |
+| 🗓 **Updated**  | 🌼  Summer 2026 | `Sunday, 25th month July in year AD 2026 18:10:30 UTC 24h` |
 
 ---
 
@@ -160,9 +160,13 @@ f.   ✅  `pom.xml` variables
     <version>2.3.8</version>
     <packaging>jar</packaging>
 
-    <!-- @1 utf8 charset encoding of .java files -->
+    <!-- @1 pom.xml variables.
+           <local-jar-file-name>jaisocx_imaging</local-jar-file-name> -> <finalName>${local-jar-file-name}</finalName>
+    -->
     <properties>
+        <!-- @2 utf8 charset encoding of .java files -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- @2 Block-finish. utf8 charset encoding of .java files -->
 
         <local-main-class>com.jaisocx.app.CropperOneMultiple</local-main-class>
         <local-jar-file-name>jaisocx_imaging</local-jar-file-name>
@@ -170,7 +174,7 @@ f.   ✅  `pom.xml` variables
         <local-jar-folder-path>build/</local-jar-folder-path>
         <local-java-bytecode-ver>17</local-java-bytecode-ver>
     </properties>
-    <!-- @1 Block-finish. utf8 charset encoding of .java files -->
+    <!-- @1 Block-finish. pom.xml variables -->
 
     <!-- @1 libs installed via maven -->
     <dependencies>
