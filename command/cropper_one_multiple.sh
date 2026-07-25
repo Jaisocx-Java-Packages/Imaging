@@ -2,10 +2,6 @@
 
 produced_image_preview_name="image_"
 
-
-
-set a+
-
 source "./command/.env_cropper_one_multiple"
 
 
@@ -13,7 +9,7 @@ source "./command/.env_cropper_one_multiple"
 #; java -cp "${pathof_jar}" \
 #;   -verbose:class "${java_class}" \
 
-#; java "${pathof_java_class}" \
+#; java "${pathof_java_src}" \
 
 
 

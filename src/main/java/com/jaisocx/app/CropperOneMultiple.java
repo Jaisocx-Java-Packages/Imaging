@@ -36,10 +36,10 @@ public class CropperOneMultiple {
 
 
 
-  public static int main (String[] args) {
+  public static void main (String[] args) {
 
     if ( args.length < 2 ) {
-      return 1;
+      return;
     }
 
 
@@ -97,7 +97,7 @@ public class CropperOneMultiple {
             b_printsToConsole_true
         );
 
-    return cropped;
+    return;
   }
 
 
