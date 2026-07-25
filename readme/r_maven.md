@@ -38,6 +38,8 @@ d.   ✅  Paths of folders: compile, build .jar
 
 e.   ✅  Charset encoding utf8
 
+f.   ✅  `pom.xml` variables
+
 ---
 
 
@@ -102,8 +104,21 @@ e.   ✅  Charset encoding utf8
 - Text files saved with **charset encoding**: `<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>`
 
 
+####  💡  pom.xml variables
 
----
+```xml
+  <properties>
+    <local-main-class>com.jaisocx.app.CropperOneMultiple</local-main-class>
+    <local-jar-file-name>jaisocx_imaging</local-jar-file-name>
+    <local-compiled-path>target/jar/</local-compiled-path>
+    <local-jar-folder-path>build/</local-jar-folder-path>
+    <local-java-bytecode-ver>17</local-java-bytecode-ver>
+  </properties>
+```
+
+
+
+####  💡  pom.xml several xml elems for changes
 
 ```xml 
   <mainClass>com.jaisocx.app.CropperOneMultiple</mainClass>
@@ -148,6 +163,12 @@ e.   ✅  Charset encoding utf8
     <!-- @1 utf8 charset encoding of .java files -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <local-main-class>com.jaisocx.app.CropperOneMultiple</local-main-class>
+        <local-jar-file-name>jaisocx_imaging</local-jar-file-name>
+        <local-compiled-path>target/jar/</local-compiled-path>
+        <local-jar-folder-path>build/</local-jar-folder-path>
+        <local-java-bytecode-ver>17</local-java-bytecode-ver>
     </properties>
     <!-- @1 Block-finish. utf8 charset encoding of .java files -->
 
@@ -175,9 +196,9 @@ e.   ✅  Charset encoding utf8
 
     <!-- @1 settings for Java compilation and building .jar -->
     <build>
-        <finalName>jaisocx_imaging</finalName>
+        <finalName>${local-jar-file-name}</finalName>
         <sourceDirectory>${project.basedir}/src/main/java/</sourceDirectory>
-        <outputDirectory>${project.basedir}/target/jar/</outputDirectory>
+        <outputDirectory>${project.basedir}/${local-compiled-path}</outputDirectory>
 
         <!-- @2 folders and files hardcopies to compiled folder and .jar -->
         <resources>
@@ -194,7 +215,7 @@ e.   ✅  Charset encoding utf8
             -->
             <resource>
                 <directory>${project.basedir}/</directory>
-                <targetPath>${project.basedir}/target/jar/</targetPath>
+                <targetPath>${project.basedir}/${local-compiled-path}</targetPath>
 
                 <includes>
                     <include>produced_images.html</include>
@@ -254,7 +275,7 @@ e.   ✅  Charset encoding utf8
             -->
             <resource>
                 <directory>${project.basedir}/src/main/</directory>
-                <targetPath>${project.basedir}/target/jar/</targetPath>
+                <targetPath>${project.basedir}/${local-compiled-path}</targetPath>
                 <includes>
                     <include>resources/templates/**</include>
                     <include>resources/images/**</include>
@@ -278,9 +299,10 @@ e.   ✅  Charset encoding utf8
 
                 <configuration>
                     <goal>compiler:compile</goal>
-                    <release>17</release>
-                    <outputDirectory>${project.basedir}/target/jar/</outputDirectory>
+                    <release>${local-java-bytecode-ver}</release>
+                    <outputDirectory>${project.basedir}/${local-compiled-path}</outputDirectory>
                     <compilerArgs>
+                        <!-- javac compiling tool: example for command line shell args. -->
                         <arg>-verbose</arg>
                     </compilerArgs>
                 </configuration>
@@ -311,13 +333,13 @@ e.   ✅  Charset encoding utf8
 
                 <configuration>
                     <goal>jar:jar</goal>
-                    <classesDirectory>${project.basedir}/target/jar/</classesDirectory>
-                    <outputDirectory>${project.basedir}/build/</outputDirectory>
+                    <classesDirectory>${project.basedir}/${local-compiled-path}</classesDirectory>
+                    <outputDirectory>${project.basedir}/${local-jar-folder-path}</outputDirectory>
                     <archive>
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.jaisocx.app.CropperOneMultiple</mainClass>
+                            <mainClass>${local-main-class}</mainClass>
                         </manifest>
                     </archive>
 
@@ -342,6 +364,9 @@ e.   ✅  Charset encoding utf8
                         <!--<include>node_cdn_installs/package-lock.json</include>-->
                     </includes>
                     <excludes>
+                        <exclude>com/jaisocx/dbg/**</exclude>
+                        <exclude>com/jaisocx/example_dbg/**</exclude>
+
                         <exclude>resources/**</exclude>
 
                         <exclude>produced_images.html</exclude>
@@ -366,7 +391,7 @@ e.   ✅  Charset encoding utf8
                     <execution>
                         <configuration>
                             <phase>package</phase>
-                            <finalName>jaisocx_imaging</finalName>
+                            <finalName>${local-jar-file-name}</finalName>
                         </configuration>
                     </execution>
                 </executions>
@@ -378,6 +403,7 @@ e.   ✅  Charset encoding utf8
     </build>
     <!-- @1 Block-finish. settings for Java compilation and building .jar -->
 </project>
+
 ```
 
 

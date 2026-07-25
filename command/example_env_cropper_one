@@ -14,7 +14,8 @@ width=160
 
 
 
-pathof_java_class="./src/main/java/com/jaisocx/app/CropperOne.java"
+pathof_java_src="./src/main/java/com/jaisocx/app/CropperOne.java"
+pathof_java_class="./target/jar/com/jaisocx/app/CropperOne.class"
 pathof_jar="./build/jaisocx_imaging.jar"
 java_class="com.jaisocx.app.CropperOne"
 

@@ -1,20 +1,32 @@
 #!/bin/bash
 
+#; Invokes Java class
+#;    com.jaisocx.app.CropperOneMultiple
+#;    via Console
+#; ---------------------------------------
+
+
 produced_image_preview_name="image_"
 
 source "./command/.env_cropper_one_multiple"
 
 
 
-#; java -cp "${pathof_jar}" \
-#;   -verbose:class "${java_class}" \
+#; -- INVOKES by .java Interpreter ( dev time ) --
+#; [copy-paste sh snippet]: # java "${pathof_java_src}" \
 
-#; java "${pathof_java_src}" \
+#; -- INVOKES by .jar ( prod ) --
+#;      java -cp "./build/jaisocx_imaging.jar"  "com.jaisocx.app.CropperOneMultiple" arg1 arg2 ...
+#; [copy-paste sh snippet]: # java -cp "${pathof_jar}" "${java_class}" \
+#; [copy-paste sh snippet]: # java -cp "${pathof_jar}" -verbose:class "${java_class}" \
+
+#; -- INVOKES compiled --
+#; [copy-paste sh snippet]: # java -cp "${pathof_java_class}" \
 
 
 
-java -cp "${pathof_jar}" \
-  -verbose:class "${java_class}" \
+#; -- INVOKES Java class CropperOneMultiple --
+java -cp "${pathof_jar}" "${java_class}" \
   "${produced_image_ver}" \
   "${top}" \
   "${left}" \
