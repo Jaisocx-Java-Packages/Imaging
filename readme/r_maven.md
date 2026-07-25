@@ -13,11 +13,9 @@
 # build via maven
 
   >  💡  the nice example of `pom.xml`, the Maven configuration file.
-  >
-  >  ❌  doesn't have for now variables block in example of `pom.xml` Maven configuration file.
 
 
-| 🗓 **Updated**  | 🌼  Summer 2026 | `Sunday, 25th month July in year AD 2026 12:20:20 UTC 24h` |
+| 🗓 **Updated**  | 🌼  Summer 2026 | `Sunday, 25th month July in year AD 2026 17:43:20 UTC 24h` |
 
 
 ---
