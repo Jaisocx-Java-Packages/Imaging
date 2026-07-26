@@ -13,7 +13,7 @@
 # ignores
   >  💡  Keeping git repos tiny
   >
-  >  💡  Preventing pushes to public git repos.
+  >  💡  Preventing pushes of sensitive data to public git repos.
 
 
 | 🗓 **Updated**  | 🌼  Summer 2026 | `Sunday, 25th month July in year AD 2026 18:10:30 UTC 24h` |
