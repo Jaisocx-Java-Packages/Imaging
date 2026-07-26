@@ -10,6 +10,7 @@
 
 /.idea/*.xml
 /.idea/**/*.xml
+/*.iml
 
 #; -- FINISH-BLOCK [git-conforming-upates]/[IDEs-private-confs] --
 
