@@ -27,7 +27,7 @@
 /**/env_*/
 
 
-  #; let's aim to make and keep backups)) Yohoo!
+  #; to keep backups
 
 /bkp/
 /**/bkp/
