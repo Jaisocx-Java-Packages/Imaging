@@ -6,6 +6,7 @@ import com.jaisocx.imaging.types.Rect;
 
 
 
+/* @in_engineering, needs bugfixes... */
 public class CropperOneMultiple {
 
   public static void main (String[] args) {
@@ -20,24 +21,25 @@ public class CropperOneMultiple {
     ImageFormatEnum imageFormatTo = ImageFormatEnum.fromString( args[5] );
 
 
-
+    Integer sInt = Integer.valueOf(1);
+    
     Rect srcImage_Rect = new Rect();
-    srcImage_Rect.y = Integer.valueOf( args[1] );
-    srcImage_Rect.x = Integer.valueOf( args[2] );
-    srcImage_Rect.height = Integer.valueOf( args[3] );
-    srcImage_Rect.width = Integer.valueOf( args[4] );
+    srcImage_Rect.y = sInt.parseInt( args[1] );
+    srcImage_Rect.x = sInt.parseInt( args[2] );
+    srcImage_Rect.height = sInt.parseInt( args[3] );
+    srcImage_Rect.width = sInt.parseInt( args[4] );
 
-    Integer cli_stepNextTry_pos_x = Integer.valueOf( args[6] );
-    Integer cli_stepNextTry_pos_y = Integer.valueOf( args[7] );
+    int cli_stepNextTry_pos_x = sInt.parseInt( args[6] );
+    int cli_stepNextTry_pos_y = sInt.parseInt( args[7] );
 
-    Integer cli_stepNextTry_size_h = Integer.valueOf( args[8] );
-    Integer cli_stepNextTry_size_w = Integer.valueOf( args[9] );
+    int cli_stepNextTry_size_h = sInt.parseInt( args[8] );
+    int cli_stepNextTry_size_w = sInt.parseInt( args[9] );
 
-    Integer cli_trialsNumber_pos_x = Integer.valueOf( args[10] );
-    Integer cli_trialsNumber_pos_y = Integer.valueOf( args[11] );
+    int cli_trialsNumber_pos_x = sInt.parseInt( args[10] );
+    int cli_trialsNumber_pos_y = sInt.parseInt( args[11] );
 
-    Integer cli_trialsNumber_size_h = Integer.valueOf( args[12] );
-    Integer cli_trialsNumber_size_w = Integer.valueOf( args[13] );
+    int cli_trialsNumber_size_h = sInt.parseInt( args[12] );
+    int cli_trialsNumber_size_w = sInt.parseInt( args[13] );
 
     boolean b_offsetRemainsMiddle_false = false;
     boolean b_offsetRemainsMiddle_true = true;

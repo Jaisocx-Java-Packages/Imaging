@@ -1,9 +1,12 @@
 package com.jaisocx.tools.combiner;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+/* @in_engineering, needs bugfixes... */
 public class CombinerFlatArrays {
 
   public final int COUNTER_CORRECTION = 2;

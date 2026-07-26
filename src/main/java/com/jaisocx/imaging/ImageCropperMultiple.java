@@ -22,6 +22,7 @@ import java.util.logging.Logger;
 
 
 
+/* @in_engineering, needs bugfixes... */
 public class ImageCropperMultiple {
 
   public String path_tpl_HtmlPreviewSPA = "./src/main/resources/templates/produced_images.html";

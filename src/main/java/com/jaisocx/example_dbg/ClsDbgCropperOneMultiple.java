@@ -6,6 +6,7 @@ import com.jaisocx.imaging.ImageCropperMultiple;
 import com.jaisocx.imaging.types.Rect;
 
 
+/* @in_engineering, needs bugfixes... */
 public class ClsDbgCropperOneMultiple {
 
   public static void main (String[] args) {
