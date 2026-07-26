@@ -100,6 +100,8 @@
 
 /node_modules
 /**/node_modules
+/node_cdn_installs/package.json
+/node_cdn_installs/package-lock.json
 # /**/<folder>/package.json
 # /**/<folder>/package-lock.json
 # /**/<folder>/yarn.lock

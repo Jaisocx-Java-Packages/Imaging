@@ -18,7 +18,7 @@
 
 | 📖️ **Library**  | `jaisocx_imaging` | 🏷️ **ver.**: `2.3.8` |
 
-| 🗓 **Updated**  | 🌼  Summer 2026 | `Sunday, 25th month July in year AD 2026 18:10:30 UTC 24h` |
+| 🗓 **Updated**  | 🌼  Summer 2026 | `Sunday, 26th month July in year AD 2026 02:55:40 UTC 24h` |
 
 | 📐 **Size**     | 🗂 Folder: 1.4 MB | 📦 .jar: 51 KB | 📋 .java: 190 KB | 
 
@@ -29,6 +29,8 @@
 
 
 ## News
+
+- 🗓  🌼  Summer 2026, 26 July 2026 **Cropper by Combiner** new Java class, preview in automated `.html` page.
  
 - 🗓  🌼  Summer 2026, 25 July 2026 **documentation and examples on building .jars and pushing to Git repo.** `pom.xml` and `.gitignore`
 
