@@ -11,38 +11,39 @@ public class CropperOneMultiple {
 
   public static void main (String[] args) {
 
-    boolean b_printsToConsole_true = true;
+    String cli_printsToConsole = args[0];
+    boolean b_printsToConsole = cli_printsToConsole.equals( "--print" );
 
-    String cli_imageVer = args[0];
+    String cli_imageVer = args[1];
 
-    String cli_pathOf_srcImage_from = args[16];
-    String cli_pathOf_ProducedImageParent_to = args[14];
-    String cli_nameOf_ProducedImage_to = args[15];
-    ImageFormatEnum imageFormatTo = ImageFormatEnum.fromString( args[5] );
+    String cli_pathOf_srcImage_from = args[18];
+    String cli_pathOf_ProducedImageParent_to = args[16];
+    String cli_nameOf_ProducedImage_to = args[17];
+    ImageFormatEnum imageFormatTo = ImageFormatEnum.fromString( args[6] );
+
+    String cli_offsetRemainsMiddle = args[7];
+    boolean b_offsetRemainsMiddle = cli_offsetRemainsMiddle.equals( "--middle" );
 
 
     Integer sInt = Integer.valueOf(1);
     
     Rect srcImage_Rect = new Rect();
-    srcImage_Rect.y = sInt.parseInt( args[1] );
-    srcImage_Rect.x = sInt.parseInt( args[2] );
-    srcImage_Rect.height = sInt.parseInt( args[3] );
-    srcImage_Rect.width = sInt.parseInt( args[4] );
+    srcImage_Rect.y = sInt.parseInt( args[2] );
+    srcImage_Rect.x = sInt.parseInt( args[3] );
+    srcImage_Rect.height = sInt.parseInt( args[4] );
+    srcImage_Rect.width = sInt.parseInt( args[5] );
 
-    int cli_stepNextTry_pos_x = sInt.parseInt( args[6] );
-    int cli_stepNextTry_pos_y = sInt.parseInt( args[7] );
+    int cli_stepNextTry_pos_x = sInt.parseInt( args[8] );
+    int cli_stepNextTry_pos_y = sInt.parseInt( args[9] );
 
-    int cli_stepNextTry_size_h = sInt.parseInt( args[8] );
-    int cli_stepNextTry_size_w = sInt.parseInt( args[9] );
+    int cli_stepNextTry_size_h = sInt.parseInt( args[10] );
+    int cli_stepNextTry_size_w = sInt.parseInt( args[11] );
 
-    int cli_trialsNumber_pos_x = sInt.parseInt( args[10] );
-    int cli_trialsNumber_pos_y = sInt.parseInt( args[11] );
+    int cli_trialsNumber_pos_x = sInt.parseInt( args[12] );
+    int cli_trialsNumber_pos_y = sInt.parseInt( args[13] );
 
-    int cli_trialsNumber_size_h = sInt.parseInt( args[12] );
-    int cli_trialsNumber_size_w = sInt.parseInt( args[13] );
-
-    boolean b_offsetRemainsMiddle_false = false;
-    boolean b_offsetRemainsMiddle_true = true;
+    int cli_trialsNumber_size_h = sInt.parseInt( args[14] );
+    int cli_trialsNumber_size_w = sInt.parseInt( args[15] );
 
 
 
@@ -63,8 +64,8 @@ public class CropperOneMultiple {
             cli_trialsNumber_pos_y,
             cli_trialsNumber_size_h,
             cli_trialsNumber_size_w,
-            b_offsetRemainsMiddle_false,
-            b_printsToConsole_true
+            b_offsetRemainsMiddle,
+            b_printsToConsole
         );
 
     return;

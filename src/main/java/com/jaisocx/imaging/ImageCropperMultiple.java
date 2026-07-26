@@ -6,7 +6,6 @@ import com.jaisocx.imaging.Constants.ImageFormatEnum;
 import com.jaisocx.imaging.helpers.ImagingFilesystemHelper;
 import com.jaisocx.imaging.types.Rect;
 import com.jaisocx.tools.combiner.Combiner;
-import com.jaisocx.tools.combiner.CombinerExample;
 import com.jaisocx.tools.combiner.CombinerFlatArrays;
 
 import java.awt.image.BufferedImage;
@@ -23,7 +22,7 @@ import java.util.logging.Logger;
 
 
 /* @in_engineering, needs bugfixes... */
-public class ImageCropperMultiple {
+public class ImageCropperMultiple implements ImageCropperMultipleInterface {
 
   public String path_tpl_HtmlPreviewSPA = "./src/main/resources/templates/produced_images.html";
   public String path_tpl_imageHtml = "./src/main/resources/templates/image.html";
@@ -77,9 +76,12 @@ public class ImageCropperMultiple {
         b_offsetRemainsMiddle
     );
 
-    System.out.print( "list_x: \n ------------------------------- \n" );
-    list_x.forEach( ( Integer i ) -> System.out.println( i ) );
-    System.out.print( "\n\n" );
+    if ( b_printsToConsole == true ) {
+      System.out.print( "left: \n ------------------------------- \n" );
+      list_x.forEach( ( Integer i ) -> System.out.println( i ) );
+      System.out.print( "\n\n" );
+    }
+
 
 
     ArrayList<Integer> list_y = combinerFlatArrays.getIntegerFlatArray (
@@ -91,9 +93,12 @@ public class ImageCropperMultiple {
         b_offsetRemainsMiddle
     );
 
-    System.out.print( "list_y: \n ------------------------------- \n" );
-    list_y.forEach( ( Integer i ) -> System.out.println( i ) );
-    System.out.print( "\n\n" );
+    if ( b_printsToConsole == true ) {
+      System.out.print( "top: \n ------------------------------- \n" );
+      list_y.forEach( ( Integer i ) -> System.out.println( i ) );
+      System.out.print( "\n\n" );
+    }
+
 
 
     ArrayList<Integer> listSizes_h = combinerFlatArrays.getIntegerFlatArray (
@@ -105,9 +110,12 @@ public class ImageCropperMultiple {
         b_offsetRemainsMiddle
     );
 
-    System.out.print( "listSizes_h: \n ------------------------------- \n" );
-    listSizes_h.forEach( ( Integer i ) -> System.out.println( i ) );
-    System.out.print( "\n\n" );
+    if ( b_printsToConsole == true ) {
+      System.out.print( "height: \n ------------------------------- \n" );
+      listSizes_h.forEach( ( Integer i ) -> System.out.println( i ) );
+      System.out.print( "\n\n" );
+    }
+
 
 
     ArrayList<Integer> listSizes_w = combinerFlatArrays.getIntegerFlatArray (
@@ -119,9 +127,12 @@ public class ImageCropperMultiple {
         b_offsetRemainsMiddle
     );
 
-    System.out.print( "listSizes_w: \n ------------------------------- \n" );
-    listSizes_w.forEach( ( Integer i ) -> System.out.println( i ) );
-    System.out.print( "\n\n" );
+    if ( b_printsToConsole == true ) {
+      System.out.print( "width: \n ------------------------------- \n" );
+      listSizes_w.forEach( ( Integer i ) -> System.out.println( i ) );
+      System.out.print( "\n\n" );
+    }
+
 
 
     List<List<Object>> combinations = Combiner.combine (
@@ -131,7 +142,9 @@ public class ImageCropperMultiple {
         listSizes_w
     );
 
-    this.printCombinations( combinations );
+    if ( b_printsToConsole == true ) {
+      this.printCombinations(combinations);
+    }
 
 
 

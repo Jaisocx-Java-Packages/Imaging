@@ -18,11 +18,11 @@ public class CombinerFlatArrays {
       int iterationsCount,
       int min,
       int max,
-      boolean offsetRemainsInMiddle
+      boolean b_offsetRemainsInMiddle
   ) {
     Integer[] flatArray = ( new Integer[]{} );
     List<Integer> list_flatArray = Arrays.asList( flatArray );
-    ArrayList<Integer> arr_flatArray= ( new ArrayList<Integer>( list_flatArray ) );
+    ArrayList<Integer> arr_flatArray = ( new ArrayList<Integer>( list_flatArray ) );
 
     int loc_counter_correction = this.COUNTER_CORRECTION;
     int loc_iterationsCount = ( iterationsCount + loc_counter_correction );
@@ -39,7 +39,7 @@ public class CombinerFlatArrays {
     int i_IncMax = ( val + offsetMax );
     int i_IncMin = val;
 
-    if ( offsetRemainsInMiddle == true ) {
+    if ( b_offsetRemainsInMiddle == true ) {
       locIterationsNumber = ( iterationsCount >>> 1 );
 
       incIterationsNumber = locIterationsNumber;
@@ -88,9 +88,19 @@ public class CombinerFlatArrays {
     Integer offset = Integer.valueOf(0);
     Integer arrayValue = Integer.valueOf(1);
 
-
     loc_iterationsCount = ( decIterationsNumber + loc_counter_correction );
     counter = 1;
+
+    if ( b_offsetRemainsInMiddle == true ) {
+      if ( iterationsCount == 1 ) {
+        loc_iterationsCount = 0;
+      } else if ( iterationsCount > 1 ) {
+        loc_iterationsCount = ( decIterationsNumber + loc_counter_correction );
+      } else {
+        throw new RuntimeException( "zero iterations in .env" );
+      }
+    }
+
     ci_step_dec: while ( counter < loc_iterationsCount ) {
       counter++;
       if ( counter >= loc_iterationsCount ) {
@@ -116,9 +126,24 @@ public class CombinerFlatArrays {
 
 
 
+    offset = Integer.valueOf(0);
     loc_iterationsCount = ( incIterationsNumber + loc_counter_correction );
-    offset = 0;
     counter = 1;
+
+    if ( b_offsetRemainsInMiddle == true ) {
+
+      if ( iterationsCount == 1 ) {
+        offset = Integer.valueOf(0);
+        loc_iterationsCount = ( 1 + loc_counter_correction );
+      } else if ( iterationsCount > 1 ) {
+        offset = Integer.valueOf( step ); // ( step * 1 );
+        loc_iterationsCount = ( incIterationsNumber + loc_counter_correction );
+      } else {
+        throw new RuntimeException( "zero iterations in .env" );
+      }
+
+    }
+
     ci_step_inc: while ( counter < loc_iterationsCount ) {
       counter++;
       if ( counter >= loc_iterationsCount ) {

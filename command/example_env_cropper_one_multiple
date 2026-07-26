@@ -1,7 +1,6 @@
 #!/bin/bash
 
-produced_image_ver="_d"
-
+produced_image_ver="_"
 produced_image_mimetype="png"
 
 original_image_path="./src/main/resources/images/Neolite__figma_com.png"
@@ -9,20 +8,26 @@ produced_image_parent="./produced/neolite_b_multiple"
 produced_image_name="neolite_b_multiple"
 
 
-top=120
-left=620
+top=160
+left=350
 
 height=400
-width=420
+width=400
 
 
-step_next_try_pos_x=5
+
+prints_to_console="--print"
+offset_remains_middle="--middle"
+
+
+step_next_try_pos_x=70
 step_next_try_pos_y=1
 
 step_next_try_size_h=1
 step_next_try_size_w=1
 
-trials_number_pos_x=10
+
+trials_number_pos_x=14
 trials_number_pos_y=1
 
 trials_number_size_h=1

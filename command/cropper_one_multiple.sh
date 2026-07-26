@@ -27,12 +27,14 @@ source "./command/.env_cropper_one_multiple"
 
 #; -- INVOKES Java class CropperOneMultiple --
 java -cp "${pathof_jar}" "${java_class}" \
+  "${prints_to_console}" \
   "${produced_image_ver}" \
   "${top}" \
   "${left}" \
   "${height}" \
   "${width}" \
   "${produced_image_mimetype}" \
+  "${offset_remains_middle}" \
   "${step_next_try_pos_x}" \
   "${step_next_try_pos_y}" \
   "${step_next_try_size_h}" \
@@ -43,7 +45,8 @@ java -cp "${pathof_jar}" "${java_class}" \
   "${trials_number_size_w}" \
   "${produced_image_parent}" \
   "${produced_image_name}" \
-  "${original_image_path}"
+  "${original_image_path}" \
+
 
 
 
