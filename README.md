@@ -97,11 +97,11 @@ c. **Publish control** `.gitignore`:  📙  [readme/r_ignores.md](./readme/r_ign
 
         boolean printsToConsole_true = true;
 
-        Rect srcImage_Rect = new Rect();
-        srcImage_Rect.x = Integer.valueOf( args[2] );
-        srcImage_Rect.y = Integer.valueOf( args[1] );
-        srcImage_Rect.height = Integer.valueOf( args[3] );
-        srcImage_Rect.width = Integer.valueOf( args[4] );
+        Rect srcImage_Dimension = new Rect();
+        srcImage_Dimension.x = Integer.valueOf( args[2] );
+        srcImage_Dimension.y = Integer.valueOf( args[1] );
+        srcImage_Dimension.height = Integer.valueOf( args[3] );
+        srcImage_Dimension.width = Integer.valueOf( args[4] );
 
         String imageVer = args[0];
 
@@ -120,7 +120,7 @@ c. **Publish control** `.gitignore`:  📙  [readme/r_ignores.md](./readme/r_ign
             pathOf_srcImage_from,
             pathOf_ProducedImageParent_to,
             nameOf_ProducedImage_to,
-            srcImage_Rect,
+            srcImage_Dimension,
             imageFormatTo,
             imageVer,
             printsToConsole_true
@@ -170,7 +170,7 @@ c. **Publish control** `.gitignore`:  📙  [readme/r_ignores.md](./readme/r_ign
           String pathOf_srcImage_from,
           String pathOf_ProducedImageParent_to,
           String nameOf_ProducedImage_to,
-          Rect srcImage_Rect,
+          Rect srcImage_Dimension,
           ImageFormatEnum imageFormatTo,
           String versionCounter,
           boolean printsToConsole
@@ -178,7 +178,7 @@ c. **Publish control** `.gitignore`:  📙  [readme/r_ignores.md](./readme/r_ign
     
       public BufferedImage cropBufferedImage (
           BufferedImage src_Img,
-          Rect srcImage_Rect
+          Rect srcImage_Dimension
       );
     
     }

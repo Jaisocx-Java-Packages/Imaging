@@ -4,7 +4,7 @@ package com.jaisocx.imaging.helpers;
 
 import java.awt.*;
 import com.jaisocx.imaging.helpers.helper_interface.ShapeHelperInterface;
-import com.jaisocx.imaging.types.Rect;
+import com.jaisocx.imaging.imaging_types.Dimension;
 
 
 
@@ -15,13 +15,13 @@ public class ShapeHelper extends ColorBase implements ShapeHelperInterface {
       Color color, 
       int shadowSize,
       Graphics2D g,
-      Rect rect
+      Dimension dimension
     ) {
 
         g.setColor(new Color(0, 0, 0, 80));
-        g.fillRoundRect(rect.x + shadowSize, rect.y + shadowSize, rect.width, rect.height, 12, 12);
+        g.fillRoundRect(dimension.x + shadowSize, dimension.y + shadowSize, dimension.width, dimension.height, 12, 12);
         g.setColor(color);
-        g.fillRoundRect(rect.x, rect.y, rect.width, rect.height, 12, 12);
+        g.fillRoundRect(dimension.x, dimension.y, dimension.width, dimension.height, 12, 12);
 
         //g.dispose();
 
@@ -32,7 +32,7 @@ public class ShapeHelper extends ColorBase implements ShapeHelperInterface {
       Color color, 
       int borderPxNumber,
       Graphics2D g,
-      Rect rect,
+      Dimension dimension,
       int arcWH
     ) {
 
@@ -50,14 +50,14 @@ public class ShapeHelper extends ColorBase implements ShapeHelperInterface {
 
         for (int i = 0; i < borderPxNumber; i++) {
 
-            topBorderY = ( rect.y + i );
-            leftBoderX = ( rect.x + i );
+            topBorderY = ( dimension.y + i );
+            leftBoderX = ( dimension.x + i );
 
             iPlusOne = ( i + 1 );
             leftAndRightBordersNumber = ( iPlusOne );
 
-            rightBorderX = ( rect.x + ( rect.width - leftAndRightBordersNumber ) );
-            bottomBorderY = ( rect.y + ( rect.height - leftAndRightBordersNumber ) );
+            rightBorderX = ( dimension.x + ( dimension.width - leftAndRightBordersNumber ) );
+            bottomBorderY = ( dimension.y + ( dimension.height - leftAndRightBordersNumber ) );
 
             if ( toDrawRounded == true ) {
               g.drawRoundRect ( 

@@ -9,9 +9,7 @@ import java.awt.image.WritableRaster;
 import java.io.File;
 import java.nio.file.Path;
 
-import javax.imageio.ImageIO;
-
-import com.jaisocx.imaging.types.Rect;
+import com.jaisocx.imaging.imaging_types.Dimension;
 
 import com.jaisocx.imaging.Constants.ImageFormatEnum;
 import com.jaisocx.imaging.Constants.ImagingConstants;
@@ -20,21 +18,9 @@ import com.jaisocx.imaging.helpers.ColorHelper;
 import com.jaisocx.imaging.helpers.PixelHelper;
 import com.jaisocx.imaging.helpers.ShapeHelper;
 import com.jaisocx.imaging.helpers.TextHelper;
-import com.jaisocx.imaging.helpers.helper_interface.ImagingFilesystemHelperInterface;
 import com.jaisocx.imaging.helpers.ImagingFilesystemHelper;
 
-import com.jaisocx.imaging.BaseImagingInterface;
 import com.jaisocx.imaging.BaseImaging;
-
-import com.jaisocx.imaging.ImageConverterInterface;
-import com.jaisocx.imaging.ImageConverter;
-
-import com.jaisocx.imaging.ImageCropperInterface;
-import com.jaisocx.imaging.ImageCropper;
-
-import com.jaisocx.imaging.ImagingInterface;
-import com.jaisocx.imaging.Imaging;
-
 
 
 public class MiniImageProducer {
@@ -197,16 +183,16 @@ public class MiniImageProducer {
 
 
 
-      Rect imgRect = new Rect();
+      Dimension imgDimension = new Dimension();
 
-      imgRect.height = imgHeight;
-      imgRect.width = imgWidth;
-      imgRect.x = 0;
-      imgRect.y = 0;
+      imgDimension.height = imgHeight;
+      imgDimension.width = imgWidth;
+      imgDimension.x = 0;
+      imgDimension.y = 0;
 
 
 
-      double dArcWH = ( imgRect.width / 1.9 );
+      double dArcWH = ( imgDimension.width / 1.9 );
       int arcWH = (int)Math.round ( dArcWH );
 
 
@@ -214,28 +200,28 @@ public class MiniImageProducer {
       graphics2D.setColor ( orangeColor );
 
       graphics2D.fillRoundRect (
-        imgRect.x, imgRect.y, imgRect.width, imgRect.height,
+        imgDimension.x, imgDimension.y, imgDimension.width, imgDimension.height,
         arcWH,
         arcWH
       );
 
 
 
-      Rect img2Rect = new Rect();
+      Dimension img2Dimension = new Dimension();
 
-      img2Rect.height = ( imgHeight - ( inBorderPxNumber + inBorderPxNumber ) );
-      img2Rect.width = ( imgWidth - ( inBorderPxNumber + inBorderPxNumber ) );
-      img2Rect.x = inBorderPxNumber;
-      img2Rect.y = inBorderPxNumber;
+      img2Dimension.height = ( imgHeight - ( inBorderPxNumber + inBorderPxNumber ) );
+      img2Dimension.width = ( imgWidth - ( inBorderPxNumber + inBorderPxNumber ) );
+      img2Dimension.x = inBorderPxNumber;
+      img2Dimension.y = inBorderPxNumber;
 
-      dArcWH = ( img2Rect.width / 1.9 );
+      dArcWH = ( img2Dimension.width / 1.9 );
       arcWH = (int)Math.round ( dArcWH );
 
       Color orange2Color = colorBase.getColor ( 255, "#ff9360" );
       graphics2D.setColor ( orange2Color );
 
       graphics2D.fillRoundRect (
-        img2Rect.x, img2Rect.y, img2Rect.width, img2Rect.height,
+        img2Dimension.x, img2Dimension.y, img2Dimension.width, img2Dimension.height,
         arcWH,
         arcWH
       );
@@ -278,14 +264,14 @@ public class MiniImageProducer {
 
 
 
-      Rect imgRect = new Rect();
-      Rect rect_1 = new Rect();
-      Rect rect_2 = new Rect();
+      Dimension imgDimension = new Dimension();
+      Dimension dimension_1 = new Dimension();
+      Dimension dimension_2 = new Dimension();
 
-      imgRect.height = imgHeight;
-      imgRect.width = imgWidth;
-      imgRect.x = 0;
-      imgRect.y = 0;
+      imgDimension.height = imgHeight;
+      imgDimension.width = imgWidth;
+      imgDimension.x = 0;
+      imgDimension.y = 0;
 
 
 
@@ -302,12 +288,12 @@ public class MiniImageProducer {
       readSrc_bufferedImage  = imagingFilesystemHelper.read( src_ImagePath );
       readDest_bufferedImage = imagingFilesystemHelper.read( dest_ImagePath );
 
-      imgRect.width  = readDest_bufferedImage.getWidth();
-      imgRect.height = readDest_bufferedImage.getHeight();
+      imgDimension.width  = readDest_bufferedImage.getWidth();
+      imgDimension.height = readDest_bufferedImage.getHeight();
       
       bufferedImage_toWrite = baseImaging.createImage ( 
-        imgRect.width, 
-        imgRect.height, 
+        imgDimension.width,
+        imgDimension.height,
         BufferedImage.TYPE_INT_ARGB
       );
 
@@ -327,28 +313,28 @@ public class MiniImageProducer {
       // Color whiteColor = colorBase.getColor ( 255, "#ffffff" );
       // graphics2D.setBackground ( whiteColor );
 
-      graphics2D.fillRect ( 0, 0, imgRect.width, imgRect.height );
+      graphics2D.fillRect ( 0, 0, imgDimension.width, imgDimension.height );
 
-      // shapeHelper.drawInnerBorder( Color.GRAY, 1, graphics2D, imgRect, 0 );
+      // shapeHelper.drawInnerBorder( Color.GRAY, 1, graphics2D, imgDimension, 0 );
       
 
 
-      Rect src_Rect = new Rect();
-      src_Rect.width = readSrc_bufferedImage.getWidth();
-      src_Rect.height = readSrc_bufferedImage.getHeight();
+      Dimension src_Dimension = new Dimension();
+      src_Dimension.width = readSrc_bufferedImage.getWidth();
+      src_Dimension.height = readSrc_bufferedImage.getHeight();
 
 
 
-      Rect dest_Rect = new Rect();
-      dest_Rect.width = readDest_bufferedImage.getWidth();
-      dest_Rect.height = readDest_bufferedImage.getHeight();
+      Dimension dest_Dimension = new Dimension();
+      dest_Dimension.width = readDest_bufferedImage.getWidth();
+      dest_Dimension.height = readDest_bufferedImage.getHeight();
 
 
 
       // the main image read copied to dest image to write, where other image above will apply with color mask
       baseImaging.copyArea_FromImageToAnother ( 
-        readDest_bufferedImage, 
-        dest_Rect, 
+        readDest_bufferedImage,
+          dest_Dimension,
         graphics2D, 
         0, 
         0,
@@ -358,11 +344,11 @@ public class MiniImageProducer {
 
 
       if ( toCenter_Sticker == true ) {
-        int dest_mid_x = ( imgRect.width >> 1 );
-        int dest_mid_y = ( imgRect.height >> 1 );
+        int dest_mid_x = ( imgDimension.width >> 1 );
+        int dest_mid_y = ( imgDimension.height >> 1 );
 
-        dest_X = ( dest_mid_x - ( src_Rect.width >> 1 ) );
-        dest_Y = ( dest_mid_y - ( src_Rect.height >> 1 ) );
+        dest_X = ( dest_mid_x - ( src_Dimension.width >> 1 ) );
+        dest_Y = ( dest_mid_y - ( src_Dimension.height >> 1 ) );
       }
 
 
@@ -392,7 +378,7 @@ public class MiniImageProducer {
 
       baseImaging.copyAreaFiltered_FromImageToAnother (
         readSrc_bufferedImage,
-        src_Rect,
+          src_Dimension,
         bufferedImage_toWrite,
         dest_X,
         dest_Y,
@@ -440,12 +426,12 @@ public class MiniImageProducer {
 
 
 
-      Rect imgRect = new Rect();
+      Dimension imgDimension = new Dimension();
 
-      imgRect.height = imgHeight;
-      imgRect.width = imgWidth;
-      imgRect.x = 0;
-      imgRect.y = 0;
+      imgDimension.height = imgHeight;
+      imgDimension.width = imgWidth;
+      imgDimension.x = 0;
+      imgDimension.y = 0;
 
 
 
@@ -453,8 +439,8 @@ public class MiniImageProducer {
 
       BaseImaging baseImaging = new BaseImaging();
       bufferedImage = baseImaging.createImage ( 
-        imgRect.height, 
-        imgRect.width, 
+        imgDimension.height,
+        imgDimension.width,
         imgType 
       );
 
@@ -468,12 +454,12 @@ public class MiniImageProducer {
 
       Color backgroundColor = colorBase.getColor ( bgColorAlpha, bgColor );
       graphics2D.setColor ( backgroundColor );
-      graphics2D.fillRect ( 0, 0, imgRect.width, imgRect.height );
+      graphics2D.fillRect ( 0, 0, imgDimension.width, imgDimension.height );
 
 
 
       Color lineColor = colorBase.getColor ( 255, logoTextColor );
-      shapeHelper.drawInnerBorder ( lineColor, 1, graphics2D, imgRect, 0 );
+      shapeHelper.drawInnerBorder ( lineColor, 1, graphics2D, imgDimension, 0 );
 
 
 
@@ -493,8 +479,8 @@ public class MiniImageProducer {
         255, 
         logoTextColor, 
         font, 
-        logoText, 
-        imgRect, 
+        logoText,
+          imgDimension,
         graphics2D, 
         1, 
         1, 
@@ -532,14 +518,14 @@ public class MiniImageProducer {
 
 
 
-      Rect imgRect = new Rect();
-      Rect rect_1 = new Rect();
-      Rect rect_2 = new Rect();
+      Dimension imgDimension = new Dimension();
+      Dimension dimension_1 = new Dimension();
+      Dimension dimension_2 = new Dimension();
 
-      imgRect.height = imgHeight;
-      imgRect.width = imgWidth;
-      imgRect.x = 0;
-      imgRect.y = 0;
+      imgDimension.height = imgHeight;
+      imgDimension.width = imgWidth;
+      imgDimension.x = 0;
+      imgDimension.y = 0;
 
 
       
@@ -568,23 +554,23 @@ public class MiniImageProducer {
 
 
       ColorHelper colorHelper = new ColorHelper();
-      colorHelper.fillVerticalGradient( Color.CYAN, Color.WHITE, graphics2D, imgRect );
+      colorHelper.fillVerticalGradient( Color.CYAN, Color.WHITE, graphics2D, imgDimension);
 
 
       ShapeHelper shapeHelper = new ShapeHelper();
 
-      rect_1.height = imgRect.height - 20;
-      rect_1.width = imgRect.width - 20;
-      rect_1.x = 10;
-      rect_1.y = 10;
-      shapeHelper.drawInnerBorder ( Color.LIGHT_GRAY, 1, graphics2D, rect_1, 0 );
+      dimension_1.height = imgDimension.height - 20;
+      dimension_1.width = imgDimension.width - 20;
+      dimension_1.x = 10;
+      dimension_1.y = 10;
+      shapeHelper.drawInnerBorder ( Color.LIGHT_GRAY, 1, graphics2D, dimension_1, 0 );
 
 
-      rect_2.height = imgRect.height - 80;
-      rect_2.width = imgRect.width - 80;
-      rect_2.x = 40;
-      rect_2.y = 40;
-      shapeHelper.drawShadowRect (  Color.YELLOW, 5, graphics2D, rect_2 );
+      dimension_2.height = imgDimension.height - 80;
+      dimension_2.width = imgDimension.width - 80;
+      dimension_2.x = 40;
+      dimension_2.y = 40;
+      shapeHelper.drawShadowRect (  Color.YELLOW, 5, graphics2D, dimension_2);
 
 
       Color lineColor = colorBase.getColor ( 255, "#ff5500" );
@@ -607,12 +593,12 @@ public class MiniImageProducer {
       // graphics2D.drawLine( x, 104, finishX, 104 );
 
 
-      // int pxArrayLen = ( imgRect.height * imgRect.width );
+      // int pxArrayLen = ( imgDimension.height * imgDimension.width );
       // int[] pixels = new int[pxArrayLen];
       int pxIx = 0;
 
       int y = 100;
-      int xoffsetForY = ( y * imgRect.width );
+      int xoffsetForY = ( y * imgDimension.width );
 
 
 

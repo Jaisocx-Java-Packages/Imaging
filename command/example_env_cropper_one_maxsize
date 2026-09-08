@@ -1,0 +1,28 @@
+#!/bin/bash
+
+produced_image_ver="a30mai26_2_1_v4"
+produced_image_mimetype="png"
+
+original_image_path="./src/main/resources/spreads/shutterstock_2195113159/spread_shutterstock_2195113159.jpg"
+produced_image_parent="./produced/shutterstock_2195113159_little"
+produced_image_name="shutterstock_2195113159_little_"
+
+top=0
+left=0
+
+#; Dimensions for the maximal crop.
+#; The CMS Playmarket Theme image size may be set, too, any size, for example 420:860.
+#; The cropped image just keeps the relative dimensions for the cropped image.
+#; 1:1 or 500:500 just mean the square max crop.
+#; if the original image was 2_350:2_000, the 1:1 cropped image gets size 2_000:2_000.
+height=1
+width=1
+
+
+
+pathof_java_src="./src/main/java/com/jaisocx/app/CropperOne_MaxSize.java"
+pathof_java_class="./target/jar/com/jaisocx/app/CropperOne_MaxSize.class"
+pathof_jar="./build/jaisocx_imaging.jar"
+java_class="com.jaisocx.app.CropperOne_MaxSize"
+
+

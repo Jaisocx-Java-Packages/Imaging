@@ -1,27 +1,13 @@
 package com.jaisocx.imaging;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Path;
-
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 
-import com.jaisocx.imaging.types.Rect;
+import com.jaisocx.imaging.imaging_types.Dimension;
 import com.jaisocx.imaging.helpers.helper_interface.ImagingFilesystemHelperInterface;
 import com.jaisocx.imaging.helpers.ImagingFilesystemHelper;
 
 import com.jaisocx.imaging.Constants.ImageFormatEnum;
 import com.jaisocx.imaging.Constants.ImagingConstants;
-
-import com.jaisocx.imaging.BaseImagingInterface;
-import com.jaisocx.imaging.BaseImaging;
-
-import com.jaisocx.imaging.ImageCropperInterface;
-import com.jaisocx.imaging.ImageCropper;
-
-import com.jaisocx.imaging.ImagingInterface;
-
 
 
 public class Imaging implements ImagingInterface {
@@ -124,7 +110,7 @@ public class Imaging implements ImagingInterface {
       String pathOf_srcImage_from,
       String pathOf_ProducedImageParent_to,
       String nameOf_ProducedImage_to,
-      Rect srcImage_Rect,
+      Dimension srcImage_Dimension,
       ImageFormatEnum imageFormatTo,
       String versionCounter,
       boolean printsToConsole
@@ -136,7 +122,7 @@ public class Imaging implements ImagingInterface {
         pathOf_srcImage_from,
         pathOf_ProducedImageParent_to,
         nameOf_ProducedImage_to,
-        srcImage_Rect,
+        srcImage_Dimension,
         imageFormatTo,
         versionCounter,
         printsToConsole
@@ -147,13 +133,13 @@ public class Imaging implements ImagingInterface {
 
   public BufferedImage cropBufferedImage (
       BufferedImage src_Img,
-      Rect srcImage_Rect
+      Dimension srcImage_Dimension
   ) {
     ImageCropper localImageCropper = (ImageCropper)this.getImageCropper();
 
     BufferedImage producedImage = localImageCropper.cropBufferedImage (
         src_Img,
-        srcImage_Rect
+        srcImage_Dimension
     );
 
     return producedImage;

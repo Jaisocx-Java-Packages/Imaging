@@ -14,7 +14,7 @@
 
         <g>
 
-            <rect
+            <dimension
                 x="3"
                 y="3"
                 width="137"
@@ -24,7 +24,7 @@
                 ry="3"
             />
 
-            <rect
+            <dimension
                 x="1"
                 y="1"
                 width="50"
@@ -32,7 +32,7 @@
                 fill="navy"
             />
 
-            <rect
+            <dimension
                 x="51"
                 y="1"
                 width="89"

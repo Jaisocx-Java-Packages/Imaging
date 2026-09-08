@@ -3,8 +3,7 @@ package com.jaisocx.imaging.helpers.helper_interface;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import com.jaisocx.imaging.types.Rect;
-import com.jaisocx.imaging.helpers.helper_interface.ColorBaseInterface;
+import com.jaisocx.imaging.imaging_types.Dimension;
 
 
 public interface ShapeHelperInterface extends ColorBaseInterface {
@@ -14,7 +13,7 @@ public interface ShapeHelperInterface extends ColorBaseInterface {
       Color color, 
       int shadowSize,
       Graphics2D g,
-      Rect rect
+      Dimension dimension
   );
 
 
@@ -22,7 +21,7 @@ public interface ShapeHelperInterface extends ColorBaseInterface {
       Color color, 
       int borderPxNumber,
       Graphics2D g,
-      Rect rect,
+      Dimension dimension,
       int arcWH
   );
 

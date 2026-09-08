@@ -3,7 +3,7 @@ package com.jaisocx.example_dbg;
 
 import com.jaisocx.imaging.Constants.ImageFormatEnum;
 import com.jaisocx.imaging.ImageCropperMultiple;
-import com.jaisocx.imaging.types.Rect;
+import com.jaisocx.imaging.imaging_types.Dimension;
 
 
 /* @in_engineering, needs bugfixes... */
@@ -27,11 +27,11 @@ public class ClsDbgCropperOneMultiple {
 
     Integer sInt = Integer.valueOf(1);
 
-    Rect srcImage_Rect = new Rect();
-    srcImage_Rect.y           = sInt.parseInt( "140" );
-    srcImage_Rect.x           = sInt.parseInt( "340" );
-    srcImage_Rect.height      = sInt.parseInt( "400" );
-    srcImage_Rect.width       = sInt.parseInt( "400" );
+    Dimension srcImage_Dimension = new Dimension();
+    srcImage_Dimension.y           = sInt.parseInt( "140" );
+    srcImage_Dimension.x           = sInt.parseInt( "340" );
+    srcImage_Dimension.height      = sInt.parseInt( "400" );
+    srcImage_Dimension.width       = sInt.parseInt( "400" );
 
     int cli_stepNextTry_pos_x = sInt.parseInt( "50" );
     int cli_stepNextTry_pos_y = sInt.parseInt( "1" );
@@ -54,7 +54,7 @@ public class ClsDbgCropperOneMultiple {
             cli_pathOf_ProducedImageParent_to,
             cli_nameOf_ProducedImage_to,
             imageFormatTo,
-            srcImage_Rect,
+            srcImage_Dimension,
             cli_stepNextTry_pos_x,
             cli_stepNextTry_pos_y,
             cli_stepNextTry_size_h,

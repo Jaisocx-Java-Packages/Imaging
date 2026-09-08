@@ -5,8 +5,7 @@ package com.jaisocx.imaging.helpers;
 import java.awt.*;
 
 import com.jaisocx.imaging.helpers.helper_interface.TextHelperInterface;
-import com.jaisocx.imaging.types.Rect;
-
+import com.jaisocx.imaging.imaging_types.Dimension;
 
 
 public class TextHelper extends ColorBase implements TextHelperInterface {
@@ -16,7 +15,7 @@ public class TextHelper extends ColorBase implements TextHelperInterface {
       String inColor,
       Font font,
       String text,
-      Rect rect,
+      Dimension dimension,
       Graphics2D g,
       int x, 
       int y,
@@ -46,8 +45,8 @@ public class TextHelper extends ColorBase implements TextHelperInterface {
         textHeight = metrics.getHeight();
         ascent = metrics.getAscent();
 
-        centered_X_Offset = ( ( rect.width - textWidth ) / 2 );
-        centered_Y_Offset = ( ( rect.height - textHeight ) / 2 ) + ascent;
+        centered_X_Offset = ( ( dimension.width - textWidth ) / 2 );
+        centered_Y_Offset = ( ( dimension.height - textHeight ) / 2 ) + ascent;
 
         x = centered_X_Offset;
         y = centered_Y_Offset;

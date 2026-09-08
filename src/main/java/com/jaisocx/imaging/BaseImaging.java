@@ -6,13 +6,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.awt.image.WritableRaster;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
-
-import com.jaisocx.imaging.Constants.ImageFormatEnum;
-import com.jaisocx.imaging.types.Rect;
+import com.jaisocx.imaging.imaging_types.Dimension;
 
 
 
@@ -32,7 +27,7 @@ public class BaseImaging implements BaseImagingInterface {
 
     public BaseImagingInterface copyArea_FromImageToAnother ( 
       BufferedImage src_Img, 
-      Rect src_Rect, 
+      Dimension src_Dimension,
       Graphics2D dest_graphics2D, 
       int dest_X, 
       int dest_Y,
@@ -40,10 +35,10 @@ public class BaseImaging implements BaseImagingInterface {
     ) {
 
       BufferedImage copiedArea = src_Img.getSubimage ( 
-        src_Rect.x, 
-        src_Rect.y, 
-        src_Rect.width, 
-        src_Rect.height 
+        src_Dimension.x,
+        src_Dimension.y,
+        src_Dimension.width,
+        src_Dimension.height
       );
 
       dest_graphics2D.drawImage (
@@ -65,7 +60,7 @@ public class BaseImaging implements BaseImagingInterface {
 
     public BaseImagingInterface copyAreaFiltered_FromImageToAnother (
       BufferedImage inOverlayImage,
-      Rect inRect_OverlayImageToCopy, 
+      Dimension inDimension_OverlayImageToCopy,
       BufferedImage dest_Img,
       int dest_X, 
       int dest_Y,
@@ -94,28 +89,28 @@ public class BaseImaging implements BaseImagingInterface {
 
 
       BufferedImage locOverlayImageCopy = inOverlayImage.getSubimage ( 
-        inRect_OverlayImageToCopy.x, 
-        inRect_OverlayImageToCopy.y, 
-        inRect_OverlayImageToCopy.width, 
-        inRect_OverlayImageToCopy.height 
+        inDimension_OverlayImageToCopy.x,
+        inDimension_OverlayImageToCopy.y,
+        inDimension_OverlayImageToCopy.width,
+        inDimension_OverlayImageToCopy.height
       );
 
-      Rect locRect_OverlayImageToCopy = new Rect();
-      locRect_OverlayImageToCopy.width = ( inRect_OverlayImageToCopy.width );
-      locRect_OverlayImageToCopy.height = ( inRect_OverlayImageToCopy.height );
-      locRect_OverlayImageToCopy.x = 0;
-      locRect_OverlayImageToCopy.y = 0;
+      Dimension locDimension_OverlayImageToCopy = new Dimension();
+      locDimension_OverlayImageToCopy.width = ( inDimension_OverlayImageToCopy.width );
+      locDimension_OverlayImageToCopy.height = ( inDimension_OverlayImageToCopy.height );
+      locDimension_OverlayImageToCopy.x = 0;
+      locDimension_OverlayImageToCopy.y = 0;
 
 
 
       WritableRaster dest = dest_Img.getAlphaRaster();
       DataBufferInt dest_Buffer = (DataBufferInt) dest.getDataBuffer();
       int[] destImagePixels = dest_Buffer.getData();
-      Rect dest_Rect = new Rect();
-      dest_Rect.width = dest_Img.getWidth();
-      dest_Rect.height = dest_Img.getHeight();
-      dest_Rect.x = 0;
-      dest_Rect.y = 0;
+      Dimension dest_Dimension = new Dimension();
+      dest_Dimension.width = dest_Img.getWidth();
+      dest_Dimension.height = dest_Img.getHeight();
+      dest_Dimension.x = 0;
+      dest_Dimension.y = 0;
 
 
 
@@ -123,7 +118,7 @@ public class BaseImaging implements BaseImagingInterface {
       DataBufferInt overlayImageDataBuffer = (DataBufferInt) overlayImageRaster.getDataBuffer();
       int[] overlayImagePixels = overlayImageDataBuffer.getData();
       int overlayImagePixelsNumber = overlayImagePixels.length;
-      int overlayImageLinesNumber = locRect_OverlayImageToCopy.height;
+      int overlayImageLinesNumber = locDimension_OverlayImageToCopy.height;
       int overlayImagePixelIx = 0;
       int oneLine_overlayImagePixelIx = 0;
       int offset_overlayImagePixelIx = 0;
@@ -133,7 +128,7 @@ public class BaseImaging implements BaseImagingInterface {
       int overlayImageLineIx = 0;
       int destImageLineIx    = dest_Y;
 
-      int offset_destImagePixelIx = ( ( destImageLineIx * dest_Rect.width ) + dest_X );
+      int offset_destImagePixelIx = ( ( destImageLineIx * dest_Dimension.width ) + dest_X );
       int destImagePixelIx = ( offset_destImagePixelIx );
 
 
@@ -150,14 +145,14 @@ public class BaseImaging implements BaseImagingInterface {
 
         oneLine_overlayImagePixelIx++;
 
-        if ( oneLine_overlayImagePixelIx == locRect_OverlayImageToCopy.width ) {
+        if ( oneLine_overlayImagePixelIx == locDimension_OverlayImageToCopy.width ) {
           oneLine_overlayImagePixelIx = 0;
 
           overlayImageLineIx++;
           destImageLineIx = ( overlayImageLineIx + dest_Y );
 
-          offset_overlayImagePixelIx = ( overlayImageLineIx * locRect_OverlayImageToCopy.width );
-          offset_destImagePixelIx    = ( ( destImageLineIx * dest_Rect.width ) + dest_X );
+          offset_overlayImagePixelIx = ( overlayImageLineIx * locDimension_OverlayImageToCopy.width );
+          offset_destImagePixelIx    = ( ( destImageLineIx * dest_Dimension.width ) + dest_X );
         }
 
         overlayImagePixelIx = ( oneLine_overlayImagePixelIx + offset_overlayImagePixelIx );

@@ -6,13 +6,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 import com.jaisocx.imaging.Constants.ImageFormatEnum;
-import com.jaisocx.imaging.types.Rect;
+import com.jaisocx.imaging.imaging_types.Dimension;
 import com.jaisocx.imaging.helpers.helper_interface.ImagingFilesystemHelperInterface;
 import com.jaisocx.imaging.helpers.ImagingFilesystemHelper;
-
-import com.jaisocx.imaging.BaseImagingInterface;
-import com.jaisocx.imaging.ImageCropperInterface;
-
 
 
 public class ImageCropper extends BaseImaging implements ImageCropperInterface {
@@ -35,7 +31,7 @@ public class ImageCropper extends BaseImaging implements ImageCropperInterface {
       String pathOf_srcImage_from,
       String pathOf_ProducedImageParent_to,
       String nameOf_ProducedImage_to,
-      Rect srcImage_Rect,
+      Dimension srcImage_Dimension,
       ImageFormatEnum imageFormatTo,
       String versionCounter,
       boolean printsToConsole
@@ -49,7 +45,7 @@ public class ImageCropper extends BaseImaging implements ImageCropperInterface {
 
     BufferedImage producedImage = this.cropBufferedImage (
         bufImageRead,
-        srcImage_Rect
+        srcImage_Dimension
     );
 
     String pathOf_producedImage_to = "";
@@ -91,13 +87,13 @@ public class ImageCropper extends BaseImaging implements ImageCropperInterface {
 
   public BufferedImage cropBufferedImage (
       BufferedImage src_Img,
-      Rect srcImage_Rect
+      Dimension srcImage_Dimension
   ) {
 
     // BufferedImage.TYPE_INT_ARGB
     BufferedImage producedImage = super.createImage (
-        srcImage_Rect.width,
-        srcImage_Rect.height,
+        srcImage_Dimension.width,
+        srcImage_Dimension.height,
         BufferedImage.TYPE_INT_ARGB
     );
 
@@ -105,7 +101,7 @@ public class ImageCropper extends BaseImaging implements ImageCropperInterface {
 
     super.copyArea_FromImageToAnother (
         src_Img,
-        srcImage_Rect,
+        srcImage_Dimension,
         dest_graphics2D,
         0,
         0,

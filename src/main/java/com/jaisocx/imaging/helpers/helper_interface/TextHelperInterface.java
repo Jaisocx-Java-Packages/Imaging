@@ -5,9 +5,7 @@ package com.jaisocx.imaging.helpers.helper_interface;
 import java.awt.Font;
 import java.awt.Graphics2D;
 
-import com.jaisocx.imaging.types.Rect;
-import com.jaisocx.imaging.helpers.helper_interface.ColorBaseInterface;
-
+import com.jaisocx.imaging.imaging_types.Dimension;
 
 
 public interface TextHelperInterface extends ColorBaseInterface {
@@ -17,7 +15,7 @@ public interface TextHelperInterface extends ColorBaseInterface {
       String inColor,
       Font font,
       String text,
-      Rect rect,
+      Dimension dimension,
       Graphics2D g,
       int x, 
       int y,

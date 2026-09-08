@@ -8,7 +8,7 @@ import java.util.List;
  * @usage: the Combiner class produces full set of all unique combinations of any number of input arguments, those are values sets,
  *         to use later in one-level loop, avoiding multi-level loops.
  *         I use in Java UnitTest methods, to check out, that each argument value combination doesn't lead to tested functionlity error.
- * @advantage: one-level loop implementation, more code review friendly. variable arguments number, easy to use with Strings, enums, oher data types.
+ * @advantage: one-level loop implementation, more code review friendly. variable arguments number, easy to use with Strings, enums, oher data imaging_types.
  * @author: Illia Polianskyi
  * @since: 2024-07-29
  */

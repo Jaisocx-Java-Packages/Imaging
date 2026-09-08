@@ -2,7 +2,7 @@ package com.jaisocx.app;
 
 import com.jaisocx.imaging.Constants.ImageFormatEnum;
 import com.jaisocx.imaging.ImageCropperMultiple;
-import com.jaisocx.imaging.types.Rect;
+import com.jaisocx.imaging.imaging_types.Dimension;
 
 
 
@@ -27,11 +27,11 @@ public class CropperOneMultiple {
 
     Integer sInt = Integer.valueOf(1);
     
-    Rect srcImage_Rect = new Rect();
-    srcImage_Rect.y = sInt.parseInt( args[2] );
-    srcImage_Rect.x = sInt.parseInt( args[3] );
-    srcImage_Rect.height = sInt.parseInt( args[4] );
-    srcImage_Rect.width = sInt.parseInt( args[5] );
+    Dimension srcImage_Dimension = new Dimension();
+    srcImage_Dimension.y = sInt.parseInt( args[2] );
+    srcImage_Dimension.x = sInt.parseInt( args[3] );
+    srcImage_Dimension.height = sInt.parseInt( args[4] );
+    srcImage_Dimension.width = sInt.parseInt( args[5] );
 
     int cli_stepNextTry_pos_x = sInt.parseInt( args[8] );
     int cli_stepNextTry_pos_y = sInt.parseInt( args[9] );
@@ -55,7 +55,7 @@ public class CropperOneMultiple {
             cli_pathOf_ProducedImageParent_to,
             cli_nameOf_ProducedImage_to,
             imageFormatTo,
-            srcImage_Rect,
+            srcImage_Dimension,
             cli_stepNextTry_pos_x,
             cli_stepNextTry_pos_y,
             cli_stepNextTry_size_h,

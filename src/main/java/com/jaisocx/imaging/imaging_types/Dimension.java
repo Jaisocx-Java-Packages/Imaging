@@ -1,8 +1,10 @@
-package com.jaisocx.imaging.types;
+package com.jaisocx.imaging.imaging_types;
 
-public class Rect {
+public class Dimension {
   public int height = 1;
   public int width = 1;
   public int x = 0;
   public int y = 0;
 }
+
+

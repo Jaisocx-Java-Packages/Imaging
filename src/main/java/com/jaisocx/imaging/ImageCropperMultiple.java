@@ -4,7 +4,7 @@ package com.jaisocx.imaging;
 import com.jaisocx.helpers.JaisocxArrayHelper;
 import com.jaisocx.imaging.Constants.ImageFormatEnum;
 import com.jaisocx.imaging.helpers.ImagingFilesystemHelper;
-import com.jaisocx.imaging.types.Rect;
+import com.jaisocx.imaging.imaging_types.Dimension;
 import com.jaisocx.tools.combiner.Combiner;
 import com.jaisocx.tools.combiner.CombinerFlatArrays;
 
@@ -38,7 +38,7 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
       String cli_pathOf_ProducedImageParent_to,
       String cli_nameOf_ProducedImage_to,
       ImageFormatEnum imageFormatTo,
-      Rect srcImage_Rect,
+      Dimension srcImage_Dimension,
       int cli_stepNextTry_pos_x,
       int cli_stepNextTry_pos_y,
       int cli_stepNextTry_size_h,
@@ -68,7 +68,7 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
     CombinerFlatArrays combinerFlatArrays = new CombinerFlatArrays();
 
     ArrayList<Integer> list_x = combinerFlatArrays.getIntegerFlatArray (
-        srcImage_Rect.x,
+        srcImage_Dimension.x,
         cli_stepNextTry_pos_x,
         cli_trialsNumber_pos_x,
         0,
@@ -85,7 +85,7 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
 
 
     ArrayList<Integer> list_y = combinerFlatArrays.getIntegerFlatArray (
-        srcImage_Rect.y,
+        srcImage_Dimension.y,
         cli_stepNextTry_pos_y,
         cli_trialsNumber_pos_y,
         0,
@@ -102,7 +102,7 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
 
 
     ArrayList<Integer> listSizes_h = combinerFlatArrays.getIntegerFlatArray (
-        srcImage_Rect.height,
+        srcImage_Dimension.height,
         cli_stepNextTry_size_h,
         cli_trialsNumber_size_h,
         0,
@@ -119,7 +119,7 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
 
 
     ArrayList<Integer> listSizes_w = combinerFlatArrays.getIntegerFlatArray (
-        srcImage_Rect.width,
+        srcImage_Dimension.width,
         cli_stepNextTry_size_w,
         cli_trialsNumber_size_w,
         0,
@@ -185,7 +185,7 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
         fsHelper,
         imageFormatTo,
         filenameExtensionOf_producedImage_to,
-        srcImage_Rect,
+        srcImage_Dimension,
         io_htmlImagesBlock
       )
     );
@@ -244,7 +244,7 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
       ImagingFilesystemHelper fsHelper,
       ImageFormatEnum imageFormatTo,
       String filenameExtensionOf_producedImage_to,
-      Rect srcImage_Rect,
+      Dimension srcImage_Dimension,
       ArrayList<String> io_htmlImagesBlock
   ) {
 
@@ -274,14 +274,14 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
             + h
     );
 
-    srcImage_Rect.x = x;
-    srcImage_Rect.y = y;
-    srcImage_Rect.height = h;
-    srcImage_Rect.width = w;
+    srcImage_Dimension.x = x;
+    srcImage_Dimension.y = y;
+    srcImage_Dimension.height = h;
+    srcImage_Dimension.width = w;
 
     producedBufImage = imaging.cropBufferedImage (
         bImg,
-        srcImage_Rect
+        srcImage_Dimension
     );
 
 
@@ -335,10 +335,10 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
     imageHtml_a = this.tpl_imageHtml.replaceAll( "\\{\\{ nameOf_ProducedImage_to \\}\\}", nameOf_ProducedImage_to );
     imageHtml_b = imageHtml_a.replaceFirst( "\\{\\{ abs_pathOf_ProducedImage_to \\}\\}", abs_pathOf_ProducedImage_to );
 
-    imageHtml_a = imageHtml_b.replaceFirst( "\\{\\{ x \\}\\}", Integer.toString( srcImage_Rect.x, 10 ) );
-    imageHtml_b = imageHtml_a.replaceFirst( "\\{\\{ y \\}\\}", Integer.toString( srcImage_Rect.y, 10 ) );
-    imageHtml_a = imageHtml_b.replaceFirst( "\\{\\{ h \\}\\}", Integer.toString( srcImage_Rect.height, 10 ) );
-    imageHtml_b = imageHtml_a.replaceFirst( "\\{\\{ w \\}\\}", Integer.toString( srcImage_Rect.width, 10 ) );
+    imageHtml_a = imageHtml_b.replaceFirst( "\\{\\{ x \\}\\}", Integer.toString( srcImage_Dimension.x, 10 ) );
+    imageHtml_b = imageHtml_a.replaceFirst( "\\{\\{ y \\}\\}", Integer.toString( srcImage_Dimension.y, 10 ) );
+    imageHtml_a = imageHtml_b.replaceFirst( "\\{\\{ h \\}\\}", Integer.toString( srcImage_Dimension.height, 10 ) );
+    imageHtml_b = imageHtml_a.replaceFirst( "\\{\\{ w \\}\\}", Integer.toString( srcImage_Dimension.width, 10 ) );
 
     io_htmlImagesBlock.add( imageHtml_b );
 

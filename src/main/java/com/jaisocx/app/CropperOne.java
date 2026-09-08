@@ -3,8 +3,7 @@ package com.jaisocx.app;
 import com.jaisocx.imaging.Constants.ImageFormatEnum;
 import com.jaisocx.imaging.Imaging;
 
-import com.jaisocx.imaging.types.Rect;
-
+import com.jaisocx.imaging.imaging_types.Dimension;
 
 
 public class CropperOne {
@@ -13,11 +12,11 @@ public class CropperOne {
 
     boolean printsToConsole_true = true;
 
-    Rect srcImage_Rect = new Rect();
-    srcImage_Rect.x = Integer.valueOf( args[2] );
-    srcImage_Rect.y = Integer.valueOf( args[1] );
-    srcImage_Rect.height = Integer.valueOf( args[3] );
-    srcImage_Rect.width = Integer.valueOf( args[4] );
+    Dimension srcImage_Dimension = new Dimension();
+    srcImage_Dimension.x = Integer.valueOf( args[2] );
+    srcImage_Dimension.y = Integer.valueOf( args[1] );
+    srcImage_Dimension.height = Integer.valueOf( args[3] );
+    srcImage_Dimension.width = Integer.valueOf( args[4] );
 
     String imageVer = args[0];
 
@@ -36,7 +35,7 @@ public class CropperOne {
       pathOf_srcImage_from,
       pathOf_ProducedImageParent_to,
       nameOf_ProducedImage_to,
-      srcImage_Rect,
+        srcImage_Dimension,
       imageFormatTo,
       imageVer,
       printsToConsole_true

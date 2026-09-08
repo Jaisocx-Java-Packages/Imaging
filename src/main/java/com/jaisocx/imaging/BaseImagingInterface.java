@@ -5,8 +5,7 @@ package com.jaisocx.imaging;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import com.jaisocx.imaging.Constants.ImageFormatEnum;
-import com.jaisocx.imaging.types.Rect;
+import com.jaisocx.imaging.imaging_types.Dimension;
 
 
 
@@ -17,7 +16,7 @@ public interface BaseImagingInterface {
 
     public BaseImagingInterface copyArea_FromImageToAnother ( 
       BufferedImage src_Img, 
-      Rect src_Rect, 
+      Dimension src_Dimension,
       Graphics2D dest_graphics2D, 
       int dest_X, 
       int dest_Y,
@@ -26,7 +25,7 @@ public interface BaseImagingInterface {
 
     public BaseImagingInterface copyAreaFiltered_FromImageToAnother (
       BufferedImage src_Img,
-      Rect src_Rect, 
+      Dimension src_Dimension,
       BufferedImage dest_Img,
       int dest_X, 
       int dest_Y,

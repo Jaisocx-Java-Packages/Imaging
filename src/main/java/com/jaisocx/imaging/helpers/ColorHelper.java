@@ -4,8 +4,7 @@ package com.jaisocx.imaging.helpers;
 
 import java.awt.*;
 import com.jaisocx.imaging.helpers.helper_interface.ColorHelperInterface;
-import com.jaisocx.imaging.types.Rect;
-
+import com.jaisocx.imaging.imaging_types.Dimension;
 
 
 public class ColorHelper implements ColorHelperInterface {
@@ -14,7 +13,7 @@ public class ColorHelper implements ColorHelperInterface {
       int Alpha,
       Color inColor,
       Graphics2D g,
-      Rect rect
+      Dimension dimension
     ) {
 
       AlphaComposite Alphacomposite = AlphaComposite.getInstance( AlphaComposite.SRC_OVER, Alpha / 255f );
@@ -23,10 +22,10 @@ public class ColorHelper implements ColorHelperInterface {
       g.setColor( inColor );
 
       g.fillRect( 
-        rect.x, 
-        rect.y, 
-        rect.width, 
-        rect.height 
+        dimension.x,
+        dimension.y,
+        dimension.width,
+        dimension.height
       );
 
       // g.dispose();
@@ -39,20 +38,20 @@ public class ColorHelper implements ColorHelperInterface {
       Color topColor, 
       Color bottomColor,
       Graphics2D g,
-      Rect rect
+      Dimension dimension
     ) {
 
         GradientPaint paint = new GradientPaint (
-          rect.x, 
-          rect.y, 
+          dimension.x,
+          dimension.y,
           topColor, 
-          rect.x, 
-          rect.height, 
+          dimension.x,
+          dimension.height,
           bottomColor
         );
 
         g.setPaint(paint);
-        g.fillRect( rect.x, rect.y, rect.width, rect.height );
+        g.fillRect( dimension.x, dimension.y, dimension.width, dimension.height );
         
         // g.dispose();
 

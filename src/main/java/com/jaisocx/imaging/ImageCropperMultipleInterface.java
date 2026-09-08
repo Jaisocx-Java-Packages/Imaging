@@ -2,7 +2,7 @@ package com.jaisocx.imaging;
 
 import com.jaisocx.imaging.Constants.ImageFormatEnum;
 import com.jaisocx.imaging.helpers.ImagingFilesystemHelper;
-import com.jaisocx.imaging.types.Rect;
+import com.jaisocx.imaging.imaging_types.Dimension;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public interface ImageCropperMultipleInterface {
       String cli_pathOf_ProducedImageParent_to,
       String cli_nameOf_ProducedImage_to,
       ImageFormatEnum imageFormatTo,
-      Rect srcImage_Rect,
+      Dimension srcImage_Dimension,
       int cli_stepNextTry_pos_x,
       int cli_stepNextTry_pos_y,
       int cli_stepNextTry_size_h,
@@ -46,7 +46,7 @@ public interface ImageCropperMultipleInterface {
       ImagingFilesystemHelper fsHelper,
       ImageFormatEnum imageFormatTo,
       String filenameExtensionOf_producedImage_to,
-      Rect srcImage_Rect,
+      Dimension srcImage_Dimension,
       ArrayList<String> io_htmlImagesBlock
   );
 

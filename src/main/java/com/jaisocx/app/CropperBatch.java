@@ -3,7 +3,6 @@ package com.jaisocx.app;
 
 import com.jaisocx.imaging.Constants.ImageFormatEnum;
 
-import com.jaisocx.imaging.helpers.helper_interface.ImagingFilesystemHelperInterface;
 import com.jaisocx.imaging.helpers.ImagingFilesystemHelper;
 
 import com.jaisocx.imaging.Imaging;
@@ -11,8 +10,7 @@ import com.jaisocx.imaging.Imaging;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import com.jaisocx.imaging.types.Rect;
-
+import com.jaisocx.imaging.imaging_types.Dimension;
 
 
 public class CropperBatch {
@@ -22,16 +20,16 @@ public class CropperBatch {
     String imageVer = args[0];
     String versionBatchCounter = "_${lineKey}_${itemKey}_";
 
-    Rect srcImage_Rect = new Rect();
-    Rect ci_Image_Rect  = new Rect();
+    Dimension srcImage_Dimension = new Dimension();
+    Dimension ci_Image_Dimension = new Dimension();
 
-    srcImage_Rect.x = Integer.valueOf( args[1] );
-    srcImage_Rect.y = Integer.valueOf( args[2] );
-    srcImage_Rect.width = Integer.valueOf( args[3] );
-    srcImage_Rect.height = Integer.valueOf( args[4] );
+    srcImage_Dimension.x = Integer.valueOf( args[1] );
+    srcImage_Dimension.y = Integer.valueOf( args[2] );
+    srcImage_Dimension.width = Integer.valueOf( args[3] );
+    srcImage_Dimension.height = Integer.valueOf( args[4] );
 
-    ci_Image_Rect.width  = srcImage_Rect.width;
-    ci_Image_Rect.height = srcImage_Rect.height;
+    ci_Image_Dimension.width  = srcImage_Dimension.width;
+    ci_Image_Dimension.height = srcImage_Dimension.height;
 
 
     long offsetX = Long.valueOf( args[5] );
@@ -118,11 +116,11 @@ public class CropperBatch {
     lineKey = ( counterLine - 1 );
     itemKey = ( counterItem - 1 );
 
-    ci_Image_Rect.width  = srcImage_Rect.width;
-    ci_Image_Rect.height = srcImage_Rect.height;
+    ci_Image_Dimension.width  = srcImage_Dimension.width;
+    ci_Image_Dimension.height = srcImage_Dimension.height;
 
-    ci_Image_Rect.y = (int)( offsetY + srcImage_Rect.y + ( ( offsetNextY + srcImage_Rect.y + srcImage_Rect.height ) * lineKey ) );
-    ci_Image_Rect.x = (int)( offsetX + srcImage_Rect.x + ( ( offsetNextX + srcImage_Rect.x + srcImage_Rect.width )  * itemKey ) );
+    ci_Image_Dimension.y = (int)( offsetY + srcImage_Dimension.y + ( ( offsetNextY + srcImage_Dimension.y + srcImage_Dimension.height ) * lineKey ) );
+    ci_Image_Dimension.x = (int)( offsetX + srcImage_Dimension.x + ( ( offsetNextX + srcImage_Dimension.x + srcImage_Dimension.width )  * itemKey ) );
 
     ci_a_line: while( counterLine < counterLineMax ) {
       counterLine++;
@@ -131,7 +129,7 @@ public class CropperBatch {
       }
 
       lineKey = ( counterLine - 2 );
-      ci_Image_Rect.y = (int)( offsetY + srcImage_Rect.y + ( ( offsetNextY + srcImage_Rect.y + srcImage_Rect.height ) * lineKey ) );
+      ci_Image_Dimension.y = (int)( offsetY + srcImage_Dimension.y + ( ( offsetNextY + srcImage_Dimension.y + srcImage_Dimension.height ) * lineKey ) );
 
 
       counterItem = ( ci_first_item + 1 );
@@ -143,7 +141,7 @@ public class CropperBatch {
         }
 
         itemKey = ( counterItem - 2 );
-        ci_Image_Rect.x = (int)( offsetX + srcImage_Rect.x + ( ( offsetNextX + srcImage_Rect.x + srcImage_Rect.width )  * itemKey ) );
+        ci_Image_Dimension.x = (int)( offsetX + srcImage_Dimension.x + ( ( offsetNextX + srcImage_Dimension.x + srcImage_Dimension.width )  * itemKey ) );
         versionBatchCounter = ( lineKey + "_" + itemKey );
 
         /* pathOf_producedImage_to = (
@@ -169,7 +167,7 @@ public class CropperBatch {
 
         producedBufImage = imaging.cropBufferedImage (
             bImg,
-            ci_Image_Rect
+            ci_Image_Dimension
         );
 
         written = fsHelper.write (

@@ -1,75 +1,153 @@
 <!DOCTYPE html>
-<html lang="en" class="jsx">
+<html lang="en" class="jaisocx clean_start">
 <head>
-
-  <title> Produced Images </title>
-
-  <base href="./">
-
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-
-
 
   <!--# FAVICON -->
   <link
       rel="icon"
       type="image/x-icon"
-      href="../node_cdn_installs/favicons/Icon_Jaisocx.ico"
+      href="Icon_Jaisocx.ico"
   />
 
+  <title> Produced Images </title>
 
 
-  <!--# STYLES CssCleanStart_Lite and theme_base -->
+
+  <base href="./../node_cdn_installs/clean_start_tiny/" />
+
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+
+  <!--# CleanStart_Tiny -->
   <link
       rel="stylesheet"
       type="text/css"
       charset="utf-8"
-      href="../node_cdn_installs/css_clean_start/CssCleanStart_Lite_main_resolved.css"
+      href="clean_start_tiny__base.css"
   />
 
+  <!--# CleanStart_Tiny Theme_Base -->
+  <link
+      rel="stylesheet"
+      type="text/css"
+      charset="utf-8"
+      href="clean_start_tiny__theme_base.css"
+  />
+
+
+  <style id="mobile_friendly" name="clean_start_preview_page_responsive">
+
+    /* portrait, xxxs til mobile xxs */
+    /* filters by widths */
+    @media only screen and (min-width: 5px) and (max-width: 280px) and (min-height: 5px) and (max-height: 1240px) and (orientation: portrait) {
+      .jaisocx.clean_start {
+
+        /* @start_block: @jaisocx/responsive_sizes helper library variables */
+        --theme_name: clean_start_tiny__theme_base;
+        --theme_name__clean_start_tiny: theme_base;
+
+        --responsive_size: responsive_size__html__xxxs_til_d05_very_small_xxs_portrait;
+
+        --responsive_size__min-width: 5px;
+        --responsive_size__max-width: 280px;
+
+        --responsive_size__min-height: 5px;
+        --responsive_size__max-height: 1240px;
+        /* @finish_block: @jaisocx/responsive_sizes helper library variables */
+
+
+        /* styles */
+        --clean_start--site--min-width: 100%;
+        --clean_start--site--max-width: 100%;
+        --clean_start--site--width: 100%;
+
+        --clean_start--site--padding: 1rem 0.3rem 2rem 0.3rem;
+      }
+    }
+
+
+    /* portrait, mobile xs til mobile md */
+    /* filters both by by widths and heights */
+    @media only screen and (min-width: 281px) and (max-width: 480px) and (min-height: 431px) and (max-height: 1240px) and (orientation: portrait) {
+      .jaisocx.clean_start {
+
+        /* @start_block: @jaisocx/responsive_sizes helper library variables */
+        --theme_name: clean_start_tiny__theme_base;
+        --theme_name__clean_start_tiny: theme_base;
+
+        --responsive_size: responsive_size__html__d05_e08_very_small_xxs__til__midsize_md_portrait;
+
+        --responsive_size__min-width: 281px;
+        --responsive_size__max-width: 480px;
+
+        --responsive_size__min-height: 431px;
+        --responsive_size__max-height: 1240px;
+        /* @finish_block: @jaisocx/responsive_sizes helper library variables */
+
+
+        --clean_start--site--min-width: 92%;
+        --clean_start--site--max-width: 100%;
+        --clean_start--site--width: 92%;
+
+        --clean_start--site--padding: 1.2rem 0.3rem 5rem 0.3rem;
+      }
+    }
+
+
+    /* landscape, xxxs height til mobile md */
+    /* filters both by by widths and heights */
+    @media only screen and (min-width: 281px) and (max-width: 1024px) and (min-height: 5px) and (max-height: 480px) and (orientation: landscape) {
+      .jaisocx.clean_start {
+
+        /* @start_block: @jaisocx/responsive_sizes helper library variables */
+        --theme_name: clean_start_tiny__theme_base;
+        --theme_name__clean_start_tiny: theme_base;
+
+        --responsive_size: responsive_size__html__d05_e08_very_small_xxs__til__midsize_md_landscape;
+
+        --responsive_size__min-width: 281px;
+        --responsive_size__max-width: 1024px;
+
+        --responsive_size__min-height: 5px;
+        --responsive_size__max-height: 480px;
+        /* @finish_block: @jaisocx/responsive_sizes helper library variables */
+
+
+        --clean_start--site--min-width: 95%;
+        --clean_start--site--max-width: 100%;
+        --clean_start--site--width: 95%;
+
+        --clean_start--site--padding: 0.3rem 0.3rem 1rem 0.3rem;
+      }
+    }
+
+  </style>
 
 
   <style name="clean_start_overrides">
 
-    .jsx {
-      --jsx--css-clean-start-2--rem: 14px;
-
-      --jsx--css-clean-start-2--site--min-width: 93%;
-      --jsx--css-clean-start-2--site--width: 93%;
-
-      --jsx--css-clean-start-2--site--background: white;
-
-      --jsx--css-clean-start-2--h1--font-size: 1.05rem;
-      --jsx--css-clean-start-2--h1--margin: 1rem 0;
+    .clean_start {
+      --clean_start--rem: 14px;
+      --clean_start--site--width: 93%;
+      --clean_start--site--background: white;
+      --clean_start--h1--font-size: 1.05rem;
+      --clean_start--h1--margin: 1rem 0;
 
       --jaisocx-ts-pack-label--font-size: 0.79rem;
 
       --image-size: 5rem;
     }
 
-    html.jsx label {
-      border: 1px solid lime;
-      background: #efe;
-      color: green;
-      border-radius: 0.4rem;
-
-      font-size: var(--jaisocx-ts-pack-label--font-size);
-      line-height: var(--jaisocx-ts-pack-label--font-size);
-      letter-spacing: 0.05rem;
-
-      padding: 0.14rem 0.6rem 0.14rem 0.6rem;
+    html.clean_start produced_images.images.big {
+      --image-size: 20rem;
     }
 
-    html.jsx produced_images.images.big {
-      --image-size: fit-content;
-    }
-
-    html.jsx produced_images.images.little {
+    html.clean_start produced_images.images.little {
       --image-size: 5rem;
     }
 
-    html.jsx produced_images.images {
+    html.clean_start produced_images.images {
       display: inline-block;
 
       height: auto;
@@ -84,7 +162,7 @@
       background: white;
     }
 
-    html.jsx produced_images.images item_image {
+    html.clean_start produced_images.images item_image {
       display: inline-block;
       text-align: center;
 
@@ -99,7 +177,7 @@
       margin: 1rem 1rem 1rem 1rem;
     }
 
-    html.jsx produced_images.images item_image img {
+    html.clean_start produced_images.images item_image img {
       display: inline-block;
 
       min-height: 1px;
@@ -118,13 +196,13 @@
 
   </style>
 
-  <head>
+
+</head>
 <body>
 <main>
 
+  <label> com.jaisocx.app.CropperOneMultiple </label>
 
-
-  <label> com.jaisocx.app.CropperOne </label>
   <h1> Produced Images </h1>
 
 
