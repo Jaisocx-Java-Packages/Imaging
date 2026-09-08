@@ -2,7 +2,7 @@
 
 
 #; Invokes Java class
-#;    com.jaisocx.app.CropperBatch
+#;    com.jaisocx.imaging.app.CropperBatch
 #;    via Console
 #; ---------------------------------------
 
@@ -13,7 +13,7 @@ source "./command/.env_cropper_batch"
 #; [copy-paste sh snippet]: # java "${pathof_java_src}" \
 
 #; -- INVOKES by .jar ( prod ) --
-#;      java -cp "./build/jaisocx_imaging.jar"  "com.jaisocx.app.CropperBatch" arg1 arg2 ...
+#;      java -cp "./build/jaisocx_imaging.jar"  "com.jaisocx.imaging.app.CropperBatch" arg1 arg2 ...
 #; [copy-paste sh snippet]: # java -cp "${pathof_jar}" "${java_class}" \
 #; [copy-paste sh snippet]: # java -cp "${pathof_jar}" -verbose:class "${java_class}" \
 

@@ -27,8 +27,8 @@ original_image_path="./src/main/resources/spreads/shutterstock_232991971/spread_
 produced_image_parent="./produced/shutterstock_232991971"
 produced_image_name="shutterstock_232991971_"
 
-pathof_java_src="./src/main/java/com/jaisocx/app/CropperBatch.java"
-pathof_java_class="./target/jar/com/jaisocx/app/CropperBatch.class"
+pathof_java_src="./src/main/java/com/jaisocx/imaging/app/CropperBatch.java"
+pathof_java_class="./target/jar/com/jaisocx/imaging/app/CropperBatch.class"
 pathof_jar="./build/jaisocx_imaging.jar"
 java_class="com.jaisocx.app.CropperBatch"
 

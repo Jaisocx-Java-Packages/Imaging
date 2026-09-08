@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #; Invokes Java class
-#;    com.jaisocx.app.CropperOne
+#;    com.jaisocx.imaging.app.CropperOne
 #;    via Console
 #; ---------------------------------------
 
@@ -15,7 +15,7 @@ source "./command/.env_cropper_one_maxsize"
 #; [copy-paste sh snippet]: # java "${pathof_java_src}" \
 
 #; -- INVOKES by .jar ( prod ) --
-#;      java -cp "./build/jaisocx_imaging.jar"  "com.jaisocx.app.CropperOne" arg1 arg2 ...
+#;      java -cp "./build/jaisocx_imaging.jar"  "com.jaisocx.imaging.app.CropperOne" arg1 arg2 ...
 #; [copy-paste sh snippet]: # java -cp "${pathof_jar}" "${java_class}" \
 #; [copy-paste sh snippet]: # java -cp "${pathof_jar}" -verbose:class "${java_class}" \
 

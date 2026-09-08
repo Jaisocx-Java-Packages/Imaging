@@ -56,7 +56,7 @@ f.   ✅  `pom.xml` variables
 
 ###  💡  Main Java configurations
 
-- **Main Java Class**: `<mainClass>com.jaisocx.app.CropperOneMultiple</mainClass>` by doubleclick on `jaisocx_imaging.jar`
+- **Main Java Class**: `<mainClass>com.jaisocx.imaging.app.CropperOneMultiple</mainClass>` by doubleclick on `jaisocx_imaging.jar`
 
 - **Name of .jar package**: `<finalName>jaisocx_imaging</finalName>` -> `jaisocx_imaging.jar`
 
@@ -70,7 +70,7 @@ f.   ✅  `pom.xml` variables
 
 ###  💡  Current library configurations
 
-- **Main Java Class**: `<mainClass>com.jaisocx.app.CropperOneMultiple</mainClass>` by doubleclick on `jaisocx_imaging.jar`
+- **Main Java Class**: `<mainClass>com.jaisocx.imaging.app.CropperOneMultiple</mainClass>` by doubleclick on `jaisocx_imaging.jar`
 
 - **Namespace**: `<groupId>com.jaisocx</groupId>`
 
@@ -103,7 +103,7 @@ f.   ✅  `pom.xml` variables
 
 ```xml
   <properties>
-    <local-main-class>com.jaisocx.app.CropperOneMultiple</local-main-class>
+    <local-main-class>com.jaisocx.imaging.app.CropperOneMultiple</local-main-class>
     <local-jar-file-name>jaisocx_imaging</local-jar-file-name>
     <local-compiled-path>target/jar/</local-compiled-path>
     <local-jar-folder-path>build/</local-jar-folder-path>
@@ -116,7 +116,7 @@ f.   ✅  `pom.xml` variables
 ###  💡  pom.xml several xml elems for changes
 
 ```xml 
-  <mainClass>com.jaisocx.app.CropperOneMultiple</mainClass>
+  <mainClass>com.jaisocx.imaging.app.CropperOneMultiple</mainClass>
   <finalName>jaisocx_imaging</finalName>
   <release>17</release>
   <groupId>com.jaisocx</groupId>
@@ -168,7 +168,7 @@ f.   ✅  `pom.xml` variables
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- @2 Block-finish. utf8 charset encoding of .java files -->
 
-        <local-main-class>com.jaisocx.app.CropperOneMultiple</local-main-class>
+        <local-main-class>com.jaisocx.imaging.app.CropperOneMultiple</local-main-class>
         <local-jar-file-name>jaisocx_imaging</local-jar-file-name>
         <local-compiled-path>target/jar/</local-compiled-path>
         <local-jar-folder-path>build/</local-jar-folder-path>

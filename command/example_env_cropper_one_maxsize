@@ -20,8 +20,8 @@ width=1
 
 
 
-pathof_java_src="./src/main/java/com/jaisocx/app/CropperOne_MaxSize.java"
-pathof_java_class="./target/jar/com/jaisocx/app/CropperOne_MaxSize.class"
+pathof_java_src="./src/main/java/com/jaisocx/imaging/app/CropperOne_MaxSize.java"
+pathof_java_class="./target/jar/com/jaisocx/imaging/app/CropperOne_MaxSize.class"
 pathof_jar="./build/jaisocx_imaging.jar"
 java_class="com.jaisocx.app.CropperOne_MaxSize"
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #; Invokes Java class
-#;    com.jaisocx.app.CropperOneMultiple
+#;    com.jaisocx.imaging.app.CropperOneMultiple
 #;    via Console
 #; ---------------------------------------
 
@@ -16,7 +16,7 @@ source "./command/.env_cropper_one_multiple"
 #; [copy-paste sh snippet]: # java "${pathof_java_src}" \
 
 #; -- INVOKES by .jar ( prod ) --
-#;      java -cp "./build/jaisocx_imaging.jar"  "com.jaisocx.app.CropperOneMultiple" arg1 arg2 ...
+#;      java -cp "./build/jaisocx_imaging.jar"  "com.jaisocx.imaging.app.CropperOneMultiple" arg1 arg2 ...
 #; [copy-paste sh snippet]: # java -cp "${pathof_jar}" "${java_class}" \
 #; [copy-paste sh snippet]: # java -cp "${pathof_jar}" -verbose:class "${java_class}" \
 

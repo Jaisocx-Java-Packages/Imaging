@@ -1,4 +1,4 @@
-package com.jaisocx.example_dbg;
+package com.jaisocx.imaging.example_dbg;
 
 
 import com.jaisocx.imaging.Constants.ImageFormatEnum;

@@ -1,24 +1,42 @@
 
 ![node_cdn_installs/software_labels/softlabel_jaisocx.svg](./node_cdn_installs/software_labels/softlabel_jaisocx.svg)
 
-`Jaisocx Java Packages`
-
-
 -  📙  You are HOME
 
 
 # Imaging
-  > 💡 Simple methods: copy, copy overlay, crop, convert.
-  > 
-  > ❌ doesn't do: ImageConverter.
-  > 
-  > ❌ com.jaisocx.tools.Combiner was hardcopied until I've written base libraries for publishing and installation via Maven.
+
+  >  💡 Simple methods: copy, copy overlay, crop, downgrade. 
+  >
+  >  💡 Having command line shell scripts by .gitignored .envs and .env backups.
+  >
+  > No Upscaler planned. Imaging was thought by another technology, for the base tasks having cheaper.
 
 
+## Techno
 
-| 📖️ **Library**  | `jaisocx_imaging` | 🏷️ **ver.**: `2.3.8` |
+-  ❌  in engineering  **Downgrader**
 
-| 🗓 **Updated**  | 🌼  Summer 2026 | `Sunday, 26th month July in year AD 2026 02:55:40 UTC 24h` |
+-  ✅  **ImageCropper**
+
+
+## Libraries
+
+-  ✅  **Example Classes**  in  `com.jaisocx.imaging.app`
+
+-  ✅  **Imaging** the main class to use other base classes of Imaging library
+
+-  ✅  **Awt Base Imaging Classes** via `java.awt`
+
+-  ✅  **Calculations Base Imaging Classes**
+
+
+---
+
+
+| 📖️ **Library**  | `jaisocx_imaging` | 🏷️ **ver.**: `2.4.1` |
+
+| 🗓 **Updated**  |  🌾  Autumn  2026 | `06th of September in year AD 2026 10:42 UTC 24h` |
 
 | 📐 **Size**     | 🗂 Folder: 1.4 MB | 📦 .jar: 51 KB | 📋 .java: 190 KB | 
 
@@ -30,7 +48,11 @@
 
 ## News
 
-- 🗓  🌼  Summer 2026, 26 July 2026 **Cropper by Combiner** new Java class, preview in automated `.html` page.
+- 🗓  🌾  Autumn 2026, 06 September 2026  ❌  in engineering **Downgrader** new Java class, pair of new interfaces.
+
+- 🗓  🌾  Autumn 2026, 06 September 2026  ✅  **Cropper by MaxSize of the original image's size** new Java class.
+
+- 🗓  🌼  Summer 2026, 26 July 2026  ✅  **Cropper by Combiner** new Java class, preview in automated `.html` page.
  
 - 🗓  🌼  Summer 2026, 25 July 2026 **documentation and examples on building .jars and pushing to Git repo.** `pom.xml` and `.gitignore`
 
@@ -86,7 +108,7 @@ c. **Publish control** `.gitignore`:  📙  [readme/r_ignores.md](./readme/r_ign
 
     // ./src/main/java/com/jaisocx/app/CropperOne.java
     
-    package com.jaisocx.app;
+    package com.jaisocx.imaging.app;
 
     import ...
 

@@ -4,7 +4,7 @@
 
 <svg
     height="23"
-    width="140"
+    width="190"
     fill="#222222"
     xmlns="http://www.w3.org/2000/svg" >
 
@@ -52,11 +52,11 @@
         >
 
           <text
-              x="350"
-              y="148"
-              fill="#c5c5c5"
-              textLength="490" >
-            Jaisocx
+              x="250"
+              y="170"
+              fill="#249"
+              textLength="1490" >
+            Jaisocx Java Packages
           </text>
 
         </g>
@@ -71,7 +71,7 @@
 
     <g
         transform="translate(0.000,18) scale(0.00190,-0.0019)"
-        fill="#ace"
+        fill="#57c"
         stroke="white" >
 
       <path d="M2880 6941 c-503 -291 -1214 -702 -1580 -913 l-665 -384 -3 -1831 -2

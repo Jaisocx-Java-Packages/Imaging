@@ -20,7 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- @2 Block-finish. utf8 charset encoding of .java files -->
 
-        <local-main-class>com.jaisocx.app.CropperOneMultiple</local-main-class>
+        <local-main-class>com.jaisocx.imaging.app.CropperOneMultiple</local-main-class>
         <local-jar-file-name>jaisocx_imaging</local-jar-file-name>
         <local-compiled-path>target/jar/</local-compiled-path>
         <local-jar-folder-path>build/</local-jar-folder-path>

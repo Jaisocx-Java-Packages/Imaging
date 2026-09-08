@@ -1,4 +1,4 @@
-package com.jaisocx.app;
+package com.jaisocx.imaging.app;
 
 
 

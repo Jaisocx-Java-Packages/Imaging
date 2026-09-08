@@ -35,8 +35,8 @@ trials_number_size_w=1
 
 
 
-pathof_java_src="./src/main/java/com/jaisocx/app/CropperOneMultiple.java"
-pathof_java_class="./target/jar/com/jaisocx/app/CropperOneMultiple.class"
+pathof_java_src="./src/main/java/com/jaisocx/imaging/app/CropperOneMultiple.java"
+pathof_java_class="./target/jar/com/jaisocx/imaging/app/CropperOneMultiple.class"
 pathof_jar="./build/jaisocx_imaging.jar"
 java_class="com.jaisocx.app.CropperOneMultiple"
 
