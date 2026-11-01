@@ -1,12 +1,15 @@
 package com.jaisocx.imaging;
 
 
-import com.jaisocx.helpers.JaisocxArrayHelper;
+import com.jaisocx.lib.array.JaisocxArrayBib;
+import com.jaisocx.lib.array.JaisocxArrayFlats;
+
 import com.jaisocx.imaging.Constants.ImageFormatEnum;
 import com.jaisocx.imaging.helpers.ImagingFilesystemHelper;
 import com.jaisocx.imaging.imaging_types.Dimension;
-import com.jaisocx.tools.combiner.Combiner;
-import com.jaisocx.tools.combiner.CombinerFlatArrays;
+
+import com.jaisocx.tools.combiner.JaisocxCombiner;
+import com.jaisocx.tools.combiner.JaisocxCombinerCls;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -64,10 +67,10 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
         cli_pathOf_srcImage_from
     );
 
-    Combiner combiner = new Combiner();
-    CombinerFlatArrays combinerFlatArrays = new CombinerFlatArrays();
+    JaisocxCombinerCls jaisocxCombinerCls = new JaisocxCombinerCls();
+    JaisocxArrayFlats jaisocxArrayFlats = new JaisocxArrayFlats();
 
-    ArrayList<Integer> list_x = combinerFlatArrays.getIntegerFlatArray (
+    ArrayList<Integer> list_x = jaisocxArrayFlats.getIntegerFlatArray (
         srcImage_Dimension.x,
         cli_stepNextTry_pos_x,
         cli_trialsNumber_pos_x,
@@ -84,7 +87,7 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
 
 
 
-    ArrayList<Integer> list_y = combinerFlatArrays.getIntegerFlatArray (
+    ArrayList<Integer> list_y = jaisocxArrayFlats.getIntegerFlatArray (
         srcImage_Dimension.y,
         cli_stepNextTry_pos_y,
         cli_trialsNumber_pos_y,
@@ -101,7 +104,7 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
 
 
 
-    ArrayList<Integer> listSizes_h = combinerFlatArrays.getIntegerFlatArray (
+    ArrayList<Integer> listSizes_h = jaisocxArrayFlats.getIntegerFlatArray (
         srcImage_Dimension.height,
         cli_stepNextTry_size_h,
         cli_trialsNumber_size_h,
@@ -118,7 +121,7 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
 
 
 
-    ArrayList<Integer> listSizes_w = combinerFlatArrays.getIntegerFlatArray (
+    ArrayList<Integer> listSizes_w = jaisocxArrayFlats.getIntegerFlatArray (
         srcImage_Dimension.width,
         cli_stepNextTry_size_w,
         cli_trialsNumber_size_w,
@@ -135,7 +138,7 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
 
 
 
-    List<List<Object>> combinations = Combiner.combine (
+    List<List<Object>> combinations = JaisocxCombiner.combine (
         list_x,
         list_y,
         listSizes_h,
@@ -191,10 +194,10 @@ public class ImageCropperMultiple implements ImageCropperMultipleInterface {
     );
 
 
-    String s_htmlImagesBlock = JaisocxArrayHelper.concat( io_htmlImagesBlock );
+    String s_htmlImagesBlock = JaisocxArrayBib.concat( io_htmlImagesBlock );
     a_htmlTemplate.set( 1, s_htmlImagesBlock );
 
-    String s_html = JaisocxArrayHelper.concat( a_htmlTemplate );
+    String s_html = JaisocxArrayBib.concat( a_htmlTemplate );
 
     String fname = "./produced/" + cli_nameOf_ProducedImage_to + ".html";
     File f_htmlPreview = new File( fname );

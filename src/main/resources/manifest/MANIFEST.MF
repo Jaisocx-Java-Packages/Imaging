@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Sealed: true
+Class-Path: packages/jaisocx_combiner.jar
+Main-Class: com.jaisocx.imaging.dbg.ClsDbgCropperOneMultiple
+Implementation-Title: jaisocx_imaging
+Implementation-Version: 2.4.3
+
+

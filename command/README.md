@@ -4,23 +4,32 @@
 
 ## Cropper
 
+  |  🗓  Since   🌨  Winter 2026 |
+
+
 
 ### Croper One
+
+  |  🗓  **Updated**  |   🌷  Spring 2026 |
 
 
 
 ### Cropper Batch
 
+  |  🗓  **Updated**  |   🌷  Spring 2026 |
+
 
 
 ### Cropper One Multiple
+
+  |  🗓  **Updated**  |   🌼  Summer 2026 |
+
 
 
 
 ### Cropper One MaxSize
 
-  | 🗓 **Updated**  |   Autumn 2026 | `Mon Sep  7 00:57:14 CEST 2026 UTC+02h 24h` |
-
+  |  🗓  **Updated**  |   🌾  Autumn 2026  | `Mon Sep  7 00:57:14 CEST 2026 UTC+02h 24h` |
 
 
 

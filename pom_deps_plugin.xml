@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+
+    <!-- @1 pom.xml variables.
+           <local-jar-file-name>jaisocx_combiner</local-jar-file-name> -> <finalName>${local-jar-file-name}</finalName>
+    -->
+    <properties>
+
+      <local-group-id>com.jaisocx</local-group-id>
+      <local-artifact-id>jaisocx_imaging</local-artifact-id>
+      <local-artifact-ver>2.3.9</local-artifact-ver>
+
+      <local-main-class>com.jaisocx.imaging.dbg.ClsDbgCropperOneMultiple</local-main-class>
+
+      <local-compiled-path>target/jar/</local-compiled-path>
+      <local-compiled-relative-tests>test/</local-compiled-relative-tests>
+      <local-compiled-relative-imported-jars-path>packages/</local-compiled-relative-imported-jars-path>
+      <local-compiled-relative-resources-path>resources/</local-compiled-relative-resources-path>
+
+      <local-jar-folder-path>build/</local-jar-folder-path>
+      <local-jar-file-name>jaisocx_imaging</local-jar-file-name>
+
+      <local-java-bytecode-ver>21</local-java-bytecode-ver>
+
+      <!-- @2 utf8 charset encoding of .java files -->
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <!-- @2 Block-finish. utf8 charset encoding of .java files -->
+
+    </properties>
+    <!-- @1 Block-finish. pom.xml variables -->
+
+
+
+    <!-- @1 Jaisocx Sites Server library name -->
+    <groupId>${local-group-id}</groupId>
+    <artifactId>${local-artifact-id}</artifactId>
+    <!-- @1 Block-finish. Jaisocx Sites Server library name -->
+
+    <version>${local-artifact-ver}</version>
+    <packaging>jar</packaging>
+
+
+
+    <!-- @1_start libs installed via maven -->
+    <dependencies>
+
+      <dependency>
+        <groupId>com.jaisocx.tools.combiner</groupId>
+        <artifactId>jaisocx_combiner</artifactId>
+        <version>3.2</version>
+        <scope>compile</scope>
+      </dependency>
+
+
+
+      <!-- TEST -->
+        <!-- Source: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>6.1.3</version>
+          <scope>test</scope>
+        </dependency>
+
+
+
+<!-- PLUGINS -->
+      <!-- @2_start. Maven Plugins -->
+        <!-- maven plugins scope provided, excluded from all jars, added to bundled.jar by scope runtime in dependencies plugin settings ( both compiled and runtime ), that works without maven on computer -->
+        <!-- Source: https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <dependency>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.16.0</version>
+          <scope>provided</scope>
+        </dependency>
+
+        <!-- Source: https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+        <dependency>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.5.1</version>
+          <scope>provided</scope>
+        </dependency>
+
+        <!-- Source: https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
+        <dependency>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>3.11.0</version>
+          <scope>provided</scope>
+        </dependency>
+      <!-- @2_finish. Maven Plugins -->
+
+    </dependencies>
+    <!-- @1_finish libs installed via maven -->
+
+
+
+    <!-- @1 settings for Java compilation and building .jar -->
+    <build>
+        <finalName>${local-jar-file-name}</finalName>
+        <sourceDirectory>${project.basedir}/src/main/java/</sourceDirectory>
+        <outputDirectory>${project.basedir}/${local-compiled-path}</outputDirectory>
+
+
+
+        <!-- @2 folders and files hardcopies to compiled folder and .jar -->
+        <resources>
+
+            <!-- base -->
+            <!-- <include> xml relative paths to <directory> are hardcopied to ${project.basedir}/target/jar/
+                   and keep the paths like this:
+                   <directory>${project.basedir}/</directory>
+                   <include>readme/
+                   ( ${project.basedir}/target/jar/ )readme/
+                #; example:
+                   <include>readme/images/**</include>
+                #;   ${project.basedir}/target/jar/readme/images/shutterstock_464833178_cropped_3_4.png
+            -->
+
+
+          <resource>
+            <directory>${project.basedir}/</directory>
+            <targetPath>${project.basedir}/${local-compiled-path}</targetPath>
+            <includes>
+              <include>README.md</include>
+            </includes>
+            <excludes>
+              <exclude>backuo/**</exclude>
+              <exclude>build/**</exclude>
+              <exclude>command/**</exclude>
+              <exclude>node_cdn_installs/**</exclude>
+              <exclude>packages/**</exclude>
+              <exclude>produced/**</exclude>
+              <exclude>readme/**</exclude>
+              <exclude>src/**</exclude>
+              <exclude>target/**</exclude>
+
+              <exclude>.mvn/**</exclude>
+              <exclude>.idea/**</exclude>
+              <exclude>.vscode/**</exclude>
+
+              <exclude>.env</exclude>
+              <exclude>.env*</exclude>
+              <exclude>**/.env</exclude>
+              <exclude>**/.env*</exclude>
+
+              <exclude>*.jar</exclude>
+              <exclude>**/*.jar</exclude>
+
+              <exclude>node_modules/**</exclude>
+              <exclude>**/node_modules/**</exclude>
+
+              <exclude>tmp/**</exclude>
+              <exclude>**/tmp/**</exclude>
+            </excludes>
+          </resource>
+
+          <resource>
+            <directory>${project.basedir}/packages/</directory>
+            <targetPath>${project.basedir}/${local-compiled-path}/${local-compiled-relative-imported-jars-path}</targetPath>
+            <includes>
+              <include>jaisocx_combiner.jar</include>
+            </includes>
+          </resource>
+
+          <resource>
+            <directory>${project.basedir}/src/main/resources/manifest/</directory>
+            <targetPath>${project.basedir}/${local-compiled-path}/META-INF</targetPath>
+            <includes>
+              <include>MANIFEST.MF</include>
+            </includes>
+          </resource>
+
+        </resources>
+        <!-- @2 Block-finish. folders and files hardcopies to compiled folder and .jar -->
+
+
+
+        <!-- @2_start Maven plugins for Java compilation -->
+        <plugins>
+
+
+            <!-- @3_start Maven plugin for dependencies inclusion -->
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-dependency-plugin</artifactId>
+              <version>3.11.0</version>
+              <executions>
+                <execution>
+                  <id>copy-dependencies</id>
+                  <phase>compile</phase>
+                  <goals>
+                    <goal>copy-dependencies</goal>
+                  </goals>
+                  <configuration>
+
+                    <!-- Directory for copied dependency JARs -->
+                    <outputDirectory>
+                      ${project.basedir}/${local-compiled-path}/${local-compiled-relative-imported-jars-path}
+                    </outputDirectory>
+
+                    <!-- Include runtime and compile dependencies -->
+                    <!-- maven plugins scope provided, excluded from all jars, added to bundled.jar by scope runtime in dependencies plugin settings ( both compiled and runtime ), that works without maven on computer -->
+                    <includeScope>runtime</includeScope>
+                    <type>jar</type>
+                    <stripVersion>false</stripVersion>
+
+                    <!-- Do not overwrite files unnecessarily -->
+                    <overWriteReleases>false</overWriteReleases>
+                    <overWriteSnapshots>false</overWriteSnapshots>
+                    <overWriteIfNewer>true</overWriteIfNewer>
+                  </configuration>
+                </execution>
+              </executions>
+            </plugin>
+            <!-- @3_finish Maven plugin for dependencies inclusion -->
+
+
+
+            <!-- @3_start Plugin for Java compilation -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.14.0</version>
+
+                <configuration>
+                    <goal>compiler:compile</goal>
+                    <release>${local-java-bytecode-ver}</release>
+                    <outputDirectory>${project.basedir}/${local-compiled-path}</outputDirectory>
+                    <!--  <compilerArgs>-->
+                    <!--       #; javac compiling tool: example for command line shell args. -->
+                    <!--      <arg>-verbose</arg>-->
+                    <!--  </compilerArgs>-->
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <configuration>
+                            <basedir>${project.basedir}/src/main/java/</basedir>
+                            <includes>
+                                <include>com/jaisocx/**/*.java</include>
+                                <!--  <include>test/java/*.java</include>-->
+                                <!--  <include>test/java/**/*.java</include>-->
+                            </includes>
+                            <!--  <excludes>-->
+                            <!--      <exclude>resources/**</exclude>-->
+                            <!--  </excludes>-->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- @3 Block-finish. Plugin for Java compilation -->
+
+
+
+            <!-- @3 Plugin for .jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+
+                <configuration>
+                    <goal>jar:jar</goal>
+                    <classesDirectory>/Users/illiapolianskyi/.m2/repository</classesDirectory>
+                    <classesDirectory>${project.basedir}/${local-compiled-path}</classesDirectory>
+                    <outputDirectory>${project.basedir}/${local-jar-folder-path}</outputDirectory>
+                    <archive>
+                      <compress>true</compress>
+                      <manifestFile>
+                        ${project.basedir}/${local-compiled-path}/META-INF/MANIFEST.MF
+                      </manifestFile>
+                    </archive>
+
+                    <includes>
+                      <include>com/jaisocx/**/*.class</include>
+                      <!--  <include>test/java/*.class</include> -->
+                      <!--  <include>test/java/**/*.class</include> -->
+
+
+                      <!-- #; other .jars -->
+                      <include>${local-compiled-relative-imported-jars-path}/*.jar</include>
+                      <include>META-INF/MANIFEST.MF</include>
+
+
+                      <!--<include>preview.html</include>-->
+
+                      <include>README.md</include>
+                      <!--<include>readme/*.md</include>-->
+                      <!--<include>readme/**/*.md</include>-->
+                      <!--<include>readme/images/**</include>-->
+
+                      <!--<include>command/*.sh</include>-->
+                      <!--<include>command/example_env_*</include>-->
+                      <!--<include>command/**/*.sh</include>-->
+
+                      <!--<include>node_cdn_installs/favicons/**</include>-->
+                      <!--<include>node_cdn_installs/software_labels/**</include>-->
+                      <!--<include>node_cdn_installs/package.json</include>-->
+                      <!--<include>node_cdn_installs/package-lock.json</include>-->
+                    </includes>
+                    <excludes>
+                        <exclude>${local-compiled-relative-resources-path}/**</exclude>
+                        <!--  <exclude>README.md</exclude> -->
+                    </excludes>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <configuration>
+                            <phase>package</phase>
+                            <finalName>${local-jar-file-name}</finalName>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- @3 Block-finish. Plugin for .jar -->
+
+
+        </plugins>
+        <!-- @2 Block-finish. Maven plugins for Java compilation -->
+
+    </build>
+    <!-- @1 Block-finish. settings for Java compilation and building .jar -->
+
+</project>
+
+

@@ -1,8 +1,8 @@
-package com.jaisocx.helpers;
+package com.jaisocx.lib.array;
 
 import java.util.List;
 
-public class JaisocxArrayHelper {
+public class JaisocxArrayBib {
 
     public static String join( List<String> textsArray, String concatenator ) {
         boolean inAddConcatenatorBeforeStart_no = false;
@@ -12,7 +12,7 @@ public class JaisocxArrayHelper {
         String[] locTextsArray1 = (new String[textsArraySize]);
         String[] locTextsArray = (String[])textsArray.toArray(locTextsArray1);
 
-        String joined = JaisocxTextsHelper.getInstance().join (
+        String joined = JaisocxArrayTexts.getInstance().join (
           locTextsArray,
           concatenator,
           inAddConcatenatorBeforeStart_no,
@@ -26,7 +26,7 @@ public class JaisocxArrayHelper {
         boolean inAddConcatenatorBeforeStart_no = false;
         boolean inAddConcatenatorAfterEnd_no = false;
 
-        String joined = JaisocxTextsHelper.getInstance().join (
+        String joined = JaisocxArrayTexts.getInstance().join (
           textsArray,
           concatenator,
           inAddConcatenatorBeforeStart_no,
@@ -41,13 +41,13 @@ public class JaisocxArrayHelper {
         String[] strArray = (new String[]{ s });
         String[] locTextsArray = textsArray.toArray( strArray );
 
-        String joined = JaisocxTextsHelper.getInstance().concat( locTextsArray );
+        String joined = JaisocxArrayTexts.getInstance().concat( locTextsArray );
 
         return joined;
     }
 
     public static String concatArray( String[] textsArray ) {
-        String joined = JaisocxTextsHelper.getInstance().concat(textsArray);
+        String joined = JaisocxArrayTexts.getInstance().concat(textsArray);
 
         return joined;
     }

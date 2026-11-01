@@ -6,11 +6,7 @@
 
 # Imaging
 
-  >  💡 Simple methods: copy, copy overlay, crop, downgrade. 
-  >
-  >  💡 Having command line shell scripts by .gitignored .envs and .env backups.
-  >
-  > No Upscaler planned. Imaging was thought by another technology, for the base tasks having cheaper.
+  >  💡 Simple methods: copy, copy overlay, crop, downgrade.
 
 
 ## Techno
@@ -34,19 +30,25 @@
 ---
 
 
-| 📖️ **Library**  | `jaisocx_imaging` | 🏷️ **ver.**: `2.4.1` |
+| 📖️ **Library**  | `jaisocx_imaging` | 🏷️ **ver.**: `2.4.3` |
 
-| 🗓 **Updated**  |  🌾  Autumn  2026 | `06th of September in year AD 2026 10:42 UTC 24h` |
+| 🗓 **Updated**  |  🌾  Autumn  2026 | `01st of November in year AD 2026 12:40 UTC 24h` |
 
-| 📐 **Size**     | 🗂 Folder: 1.4 MB | 📦 .jar: 51 KB | 📋 .java: 190 KB | 
+| 📐 **Size**     | 🗂 Folder: 1.4 MB | 📦 .jar: 79 KB | 📋 .java: 170 KB | 
 
 | **Build tool for Java projects Conf** |  ✅  Maven |
+
+| **Test** |  ✅  Examples call by command line shell  |  ✅  Examples  |  
+
+| **Plan** |   ✅  Unit tests, ❌ No Upscaler planned. Imaging was thought by another technology, for the base tasks having cheaper. |
 
 ---
 
 
 
 ## News
+
+- 🗓  🌾  Autumn 2026, 01 November 2026  ✅  **Upgrades for Java infrastructure** nice commands for .jar, and the upgraded Combiner moved to .jar
 
 - 🗓  🌾  Autumn 2026, 06 September 2026  ❌  in engineering **Downgrader** new Java class, pair of new interfaces.
 

@@ -115,6 +115,7 @@
   #; folder for images produced, might be many Gigabytes
 
 /produced/
+/readme/javadoc/
 /src/main/resources/tmp/
 
 

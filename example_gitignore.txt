@@ -10,6 +10,7 @@
 
 /.idea/*.xml
 /.idea/**/*.xml
+/*.iml
 
 #; -- FINISH-BLOCK [git-conforming-upates]/[IDEs-private-confs] --
 
@@ -99,6 +100,8 @@
 
 /node_modules
 /**/node_modules
+/node_cdn_installs/package.json
+/node_cdn_installs/package-lock.json
 # /**/<folder>/package.json
 # /**/<folder>/package-lock.json
 # /**/<folder>/yarn.lock
@@ -112,6 +115,7 @@
   #; folder for images produced, might be many Gigabytes
 
 /produced/
+/readme/javadoc/
 /src/main/resources/tmp/
 
 

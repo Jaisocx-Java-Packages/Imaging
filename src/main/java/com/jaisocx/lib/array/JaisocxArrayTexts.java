@@ -1,21 +1,21 @@
-package com.jaisocx.helpers;
+package com.jaisocx.lib.array;
 
 import java.nio.charset.Charset;
 
 
-public class JaisocxTextsHelper {
-  protected static JaisocxTextsHelper instance = null;
+public class JaisocxArrayTexts {
+  protected static JaisocxArrayTexts instance = null;
 
   public static final long DATATYPE__CHARS_ARRAY = 3;
   public static final long DATATYPE__BYTES_ARRAY = 7;
 
 
 
-  JaisocxTextsHelper() {}
+  JaisocxArrayTexts() {}
 
-  public static JaisocxTextsHelper getInstance() {
+  public static JaisocxArrayTexts getInstance() {
     if ( instance == null ) {
-      instance = new JaisocxTextsHelper();
+      instance = new JaisocxArrayTexts();
     }
 
     return instance;

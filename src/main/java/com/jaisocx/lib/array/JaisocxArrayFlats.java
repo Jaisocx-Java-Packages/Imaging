@@ -1,4 +1,4 @@
-package com.jaisocx.tools.combiner;
+package com.jaisocx.lib.array;
 
 
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.List;
 
 
 /* @in_engineering, needs bugfixes... */
-public class CombinerFlatArrays {
+public class JaisocxArrayFlats {
 
   public final int COUNTER_CORRECTION = 2;
 
