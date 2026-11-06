@@ -43,6 +43,8 @@ Jaisocx &#8482; &#169;
 
 | **Test** |  ✅  Examples call by command line shell  |  ✅  Examples  |  
 
+| **Command** |  ❌  my javadoc.sh for the Javadoc doesn't do, smth. with deps lookup
+
 | **Plan** |   ✅  Unit tests, ❌ No Upscaler planned. Imaging was thought by another technology, for the base tasks having cheaper. |
 
 ---
