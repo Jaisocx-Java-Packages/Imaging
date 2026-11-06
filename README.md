@@ -1,4 +1,7 @@
 
+Jaisocx &#8482; &#169;
+
+
 ![node_cdn_installs/software_labels/softlabel_jaisocx.svg](./node_cdn_installs/software_labels/softlabel_jaisocx.svg)
 
 -  📙  You are HOME
@@ -208,7 +211,10 @@ c. **Publish control** `.gitignore`:  📙  [readme/r_ignores.md](./readme/r_ign
     }
   ```
 
+---
 
-Have a nice day, ILLIA POLIANSKYI
+
+
+Have a nice day, Jaisocx Inc. Software Architect Illia Polianskyi
 
 
